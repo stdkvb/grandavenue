@@ -8,5 +8,6 @@
     object-fit: cover;
     position: absolute;
     z-index: -1;
+    filter: brightness(60%);
   }
 }
