@@ -1,0 +1,33 @@
+.header {
+  background-color: transparent;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: calc(100% - 140px);
+
+  &__column {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+
+    &:first-of-type {
+      gap: 60px;
+    }
+  }
+
+  &__discount {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    span {
+      @include InterMedium;
+      text-transform: uppercase;
+      display: block;
+      max-width: 135px;
+    }
+  }
+}
