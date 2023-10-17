@@ -13,7 +13,7 @@ export default function Home() {
       />
       <div className='container'>
         <h1>Жилой комплекс бизнес-класса от ГК «Первый Трест»</h1>
-        <Link href={'/layouts'} className='button-link'>
+        <Link href={'/layouts'} className='button'>
           Выбрать квартиру
         </Link>
       </div>

@@ -82,7 +82,7 @@ const Header = () => {
         <Link href={'tel:+73211232123'} className='link'>
           +73211232123
         </Link>
-        <Link href={'/layouts'} className='button-link'>
+        <Link href={'/layouts'} className='button button_secondary'>
           Выбрать квартиру
         </Link>
       </div>
@@ -107,22 +107,40 @@ const Header = () => {
             />
           </svg>
           <nav className='menu__nav'>
-            <Link href={'/project'}>О проекте</Link>
-            <Link href={'/location'}>Расположение</Link>
-            <Link href={'/architecture'}>Архитектура</Link>
-            <Link href={'/infrastructure'}>Инфраструктура</Link>
-            <Link href={'/layouts'}>Планировка</Link>
-            <Link href={'/parking'}>Паркинг</Link>
-            <Link href={'/contacts'}>Контакты</Link>
-            <Link href={'/documents'}>Документы</Link>
+            <Link href={'/project'} className='link'>
+              О проекте
+            </Link>
+            <Link href={'/location'} className='link'>
+              Расположение
+            </Link>
+            <Link href={'/architecture'} className='link'>
+              Архитектура
+            </Link>
+            <Link href={'/infrastructure'} className='link'>
+              Инфраструктура
+            </Link>
+            <Link href={'/layouts'} className='link'>
+              Планировка
+            </Link>
+            <Link href={'/parking'} className='link'>
+              Паркинг
+            </Link>
+            <Link href={'/contacts'} className='link'>
+              Контакты
+            </Link>
+            <Link href={'/documents'} className='link'>
+              Документы
+            </Link>
           </nav>
-          <span className='menu__callback button-link'>Заказать звонок</span>
+          <span className='menu__callback button button_secondary'>
+            Заказать звонок
+          </span>
           <div className='menu__office'>
             <span>Офис продаж:</span>
             <span>Группа компаний «Первый Трест» г. Уфа, ул. Цюрупы, 30</span>
             <span>ПН-ПТ: 9:00 — 20:00, СБ: 10:00 — 18:00, ВС: выходной</span>
           </div>
-          <Link href={'tel:+73472017063'} className='menu__phone'>
+          <Link href={'tel:+73472017063'} className='menu__phone link'>
             +7 (347) 201-70-63
           </Link>
           <div className='menu__socials'>
@@ -155,15 +173,21 @@ const Header = () => {
                 viewBox='0 0 40 40'
                 fill='none'
               >
-                <g clip-path='url(#clip0_413_1424)'>
+                <g clip-path='url(#clip0_617_1030)'>
                   <path
-                    d='M20.9825 27C13.466 27 9.17864 21.7447 9 13H12.7651C12.8888 19.4184 15.6646 22.1371 17.8632 22.6977V13H21.4085V18.5355C23.5796 18.2973 25.8607 15.7748 26.6302 13H30.1755C29.8855 14.4391 29.3075 15.8017 28.4776 17.0025C27.6477 18.2033 26.5837 19.2166 25.3523 19.979C26.7269 20.6756 27.941 21.6615 28.9145 22.8717C29.888 24.082 30.5988 25.489 31 27H27.0974C26.7373 25.6876 26.0054 24.5128 24.9934 23.6228C23.9814 22.7328 22.7343 22.1673 21.4085 21.997V27H20.9825Z'
+                    d='M20.9825 27.0002C13.466 27.0002 9.17864 21.745 9 13.0002H12.7651C12.8888 19.4187 15.6646 22.1374 17.8632 22.6979V13.0002H21.4085V18.5358C23.5796 18.2975 25.8607 15.775 26.6302 13.0002H30.1755C29.8855 14.4393 29.3075 15.8019 28.4776 17.0027C27.6477 18.2036 26.5837 19.2169 25.3523 19.9792C26.7269 20.6758 27.941 21.6617 28.9145 22.872C29.888 24.0822 30.5988 25.4893 31 27.0002H27.0974C26.7373 25.6879 26.0054 24.5131 24.9934 23.6231C23.9814 22.7331 22.7343 22.1675 21.4085 21.9972V27.0002H20.9825Z'
                     fill='white'
                   />
                 </g>
                 <defs>
-                  <clipPath id='clip0_413_1424'>
-                    <rect width='40' height='40' rx='8' fill='white' />
+                  <clipPath id='clip0_617_1030'>
+                    <rect
+                      y='0.000244141'
+                      width='40'
+                      height='40'
+                      rx='8'
+                      fill='white'
+                    />
                   </clipPath>
                 </defs>
               </svg>

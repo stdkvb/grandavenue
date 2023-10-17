@@ -1,0 +1,33 @@
+.button {
+  border-radius: 8px;
+  border: 1px solid $white;
+  padding: 16px 32px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  width: fit-content;
+  cursor: pointer;
+  @include transition;
+  background-color: $white;
+  color: $gray90;
+
+  &:hover {
+    background-color: $orange;
+    border-color: $orange;
+    color: $white;
+  }
+
+  &_secondary {
+    background-color: transparent;
+    color: $white;
+
+    &:hover {
+      background-color: $white;
+      color: $gray90;
+      border-color: $white;
+    }
+
+    &:focus {
+      border: 1px dashed $white;
+    }
+  }
+}
