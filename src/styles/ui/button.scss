@@ -9,6 +9,7 @@
   @include transition;
   background-color: $white;
   color: $gray90;
+  font-weight: 500;
 
   &:hover {
     background-color: $orange;
@@ -29,5 +30,20 @@
     &:focus {
       border: 1px dashed $white;
     }
+  }
+
+  &_black {
+    background-color: $gray90;
+    color: $white;
+    border: none;
+
+    &:hover {
+      background-color: $orange;
+      color: $white;
+    }
+  }
+
+  &_small {
+    padding: 8px 12px;
   }
 }

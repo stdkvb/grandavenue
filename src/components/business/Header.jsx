@@ -80,7 +80,7 @@ const Header = () => {
       </Link>
       <div className='header__column'>
         <Link href={'tel:+73211232123'} className='link'>
-          +73211232123
+          +7 321 123 21 23
         </Link>
         <Link href={'/layouts'} className='button button_secondary'>
           Выбрать квартиру
