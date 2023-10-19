@@ -1,0 +1,86 @@
+.location {
+  .container {
+    height: 100%;
+    padding-top: 200px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  h1 {
+    max-width: 584px;
+    position: absolute;
+    top: 200px;
+    left: 70px;
+
+    @include tablet {
+      left: 30px;
+      max-width: 400px;
+    }
+
+    @include mobile {
+      max-width: 300px;
+      left: 15px;
+    }
+  }
+
+  p {
+    align-self: flex-end;
+    @include HeliosRegular;
+    text-align: right;
+    max-width: 487px;
+    font-size: 24px;
+    position: absolute;
+    bottom: 100px;
+    right: 142px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    @include tablet {
+      right: 30px;
+      bottom: 50px;
+      font-size: 20px;
+    }
+
+    @include mobile {
+      max-width: 290px;
+      bottom: 24px;
+      right: 15px;
+      font-size: 16px;
+      -webkit-line-clamp: 4;
+    }
+  }
+
+  &__map {
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100vh;
+    position: relative;
+  }
+
+  &__background {
+    position: absolute;
+    z-index: -1;
+    filter: brightness(60%);
+
+    @include mobile {
+      width: unset;
+    }
+  }
+
+  &__base {
+    position: absolute;
+    top: 330px;
+    left: 300px;
+  }
+
+  &__point {
+    position: absolute;
+    top: 400px;
+    left: 390px;
+  }
+}

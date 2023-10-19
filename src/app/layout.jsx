@@ -1,5 +1,4 @@
 import { Header } from '../components/business/Header';
-// import { PHProvider } from './providers';
 import { CookieConsent } from '../components/business/CookieConsent';
 
 import './globals.scss';
