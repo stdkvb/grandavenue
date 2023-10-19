@@ -9,6 +9,15 @@
   width: calc(100% - 140px);
   z-index: 100;
 
+  @include tablet {
+    width: calc(100% - 60px);
+  }
+
+  @include mobile {
+    padding: 13px 0;
+    width: calc(100% - 30px);
+  }
+
   &__column {
     display: flex;
     gap: 24px;
@@ -24,11 +33,47 @@
     gap: 8px;
     align-items: center;
 
+    @include tablet_small {
+      display: none;
+    }
+
     span {
       @include InterMedium;
       text-transform: uppercase;
       display: block;
       max-width: 135px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: flex-start;
+    gap: 17px;
+
+    @include mobile {
+      z-index: 2;
+      svg:last-of-type {
+        display: none;
+      }
+    }
+  }
+
+  &__phone-icon {
+    z-index: 2;
+    @include min_tablet_small {
+      display: none;
+    }
+  }
+
+  &__phone {
+    @include tablet_small {
+      display: none;
+    }
+  }
+
+  &__button {
+    @include desktop_small {
+      display: none;
     }
   }
 }

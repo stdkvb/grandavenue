@@ -11,6 +11,11 @@
   color: $gray90;
   font-weight: 500;
 
+  @include mobile {
+    width: 100%;
+    text-align: center;
+  }
+
   &:hover {
     background-color: $orange;
     border-color: $orange;

@@ -13,7 +13,7 @@ const Project = () => {
       />
       <div className='container'>
         <h1>
-          <span>Ункальный проект</span>
+          <span>Уникальный проект</span>
           <span>Привлекающий внимание</span>
           <span>каждой деталью</span>
         </h1>
