@@ -1,5 +1,9 @@
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'GrandAvenue | Паркинг',
+};
+
 const Parking = () => {
   return (
     <section className='page welcome'>
