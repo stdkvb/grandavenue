@@ -7,7 +7,7 @@ import 'swiper/css/scrollbar';
 
 const Architecture = () => {
   return (
-    <section className='page architecture'>
+    <section className='page swiper'>
       <Swiper
         className='page__swiper'
         modules={[Navigation, Scrollbar]}
@@ -15,8 +15,6 @@ const Architecture = () => {
         slidesPerView={1}
         navigation
         scrollbar={{ draggable: true }}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
           <img

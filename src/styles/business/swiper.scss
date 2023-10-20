@@ -1,4 +1,4 @@
-.architecture {
+.swiper {
   .container {
     height: 100%;
     display: flex;
@@ -15,31 +15,31 @@
       padding-top: 92px;
       padding-bottom: 34px;
     }
+  }
 
-    h1 {
-      max-width: 900px;
+  h1 {
+    max-width: 900px;
+  }
+
+  p {
+    @include HeliosRegular;
+    font-size: 24px;
+    max-width: 450px;
+    align-self: flex-end;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    @include tablet {
+      font-size: 20px;
     }
 
-    p {
-      @include HeliosRegular;
-      font-size: 24px;
-      max-width: 450px;
-      align-self: flex-end;
-      text-align: right;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-
-      @include tablet {
-        font-size: 20px;
-      }
-
-      @include mobile {
-        font-size: 16px;
-        max-width: 290px;
-      }
+    @include mobile {
+      font-size: 16px;
+      max-width: 290px;
     }
   }
 
@@ -124,5 +124,41 @@
 
   .swiper-scrollbar-drag {
     background-color: $white !important;
+  }
+
+  &_wide {
+    p {
+      max-width: 620px;
+      -webkit-line-clamp: 4;
+      height: 116px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      top: 380px !important;
+
+      @include tablet {
+        top: 370px !important;
+      }
+
+      @include mobile {
+        top: 250px !important;
+      }
+    }
+
+    .swiper-horizontal > .swiper-scrollbar,
+    .swiper-scrollbar.swiper-scrollbar-horizontal {
+      top: 330px !important;
+
+      @include tablet {
+        top: 325px !important;
+      }
+
+      @include mobile {
+        top: 215px !important;
+      }
+    }
   }
 }
