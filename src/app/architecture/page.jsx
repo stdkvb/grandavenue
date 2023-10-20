@@ -5,10 +5,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 
-export const metadata = {
-  title: 'GrandAvenue | Архитектура',
-};
-
 const Architecture = () => {
   return (
     <section className='page architecture'>
