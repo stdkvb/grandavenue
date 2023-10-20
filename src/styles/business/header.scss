@@ -18,6 +18,10 @@
     width: calc(100% - 30px);
   }
 
+  &_gray {
+    background-color: $gray90;
+  }
+
   &__column {
     display: flex;
     gap: 24px;

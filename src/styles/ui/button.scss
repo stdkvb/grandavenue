@@ -50,5 +50,9 @@
 
   &_small {
     padding: 8px 12px;
+
+    @include mobile {
+      width: fit-content;
+    }
   }
 }

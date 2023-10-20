@@ -2,11 +2,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-const Header = () => {
+const Header = ({ color }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className='header container'>
+    <header className={'header container ' + color}>
       <div className='header__column'>
         <svg
           onClick={() => {

@@ -7,7 +7,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
-const Point = () => {
+const Gallery = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   const sliderRef = useRef(null);
@@ -81,4 +81,4 @@ const Point = () => {
   );
 };
 
-export default Point;
+export default Gallery;

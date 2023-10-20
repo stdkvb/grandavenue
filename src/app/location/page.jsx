@@ -38,7 +38,7 @@ const Location = () => {
             />
           </svg>
         </span>
-        <Link href={'/location/point'} className='location__point'>
+        <Link href={'/location/gallery'} className='location__point'>
           <svg
             width='42'
             height='58'
