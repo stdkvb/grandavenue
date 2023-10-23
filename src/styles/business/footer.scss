@@ -3,10 +3,11 @@
   flex-direction: column;
   position: relative;
   padding-top: 90px;
+  padding-bottom: 40px;
   align-self: end;
 
   @include mobile {
-    padding: 14px;
+    padding: 14px 14px 36px 14px;
   }
 
   &__socials {

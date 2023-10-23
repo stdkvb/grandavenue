@@ -23,6 +23,12 @@
     &:focus ~ .input__error {
       display: block;
     }
+
+    &.input_black {
+      color: $black;
+      border: solid 1px $gray30;
+      max-width: 433px;
+    }
   }
 
   &.valid {
