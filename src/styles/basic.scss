@@ -64,6 +64,15 @@ h3 {
   }
 }
 
+h5 {
+  @include HeliosBold;
+  font-size: 24px;
+
+  @include mobile {
+    font-size: 16px;
+  }
+}
+
 a {
   color: $white;
   text-decoration: none;
