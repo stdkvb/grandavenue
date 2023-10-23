@@ -3,9 +3,10 @@
   flex-direction: column;
   position: relative;
   padding-top: 90px;
+  align-self: end;
 
   @include mobile {
-    padding-top: 46px;
+    padding: 14px;
   }
 
   &__socials {
@@ -52,13 +53,14 @@
 
   &__row {
     display: flex;
-    gap: 24px;
+    gap: 44px;
     align-items: flex-end;
     margin-bottom: 70px;
 
     @include tablet {
       flex-direction: column;
       align-items: flex-start;
+      gap: 24px;
     }
 
     @include mobile {

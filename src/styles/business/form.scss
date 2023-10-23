@@ -1,0 +1,54 @@
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    'name phone'
+    'privacy submit';
+  gap: 24px;
+  width: 50%;
+
+  @include desktop {
+    width: 100%;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'name'
+      'phone'
+      'privacy'
+      'submit';
+    gap: 8px;
+  }
+
+  &__name {
+    grid-area: name;
+  }
+
+  &__phone {
+    grid-area: phone;
+  }
+
+  &__privacy {
+    grid-area: privacy;
+    text-transform: uppercase;
+    color: $white;
+    font-size: 12px;
+
+    @include mobile {
+      margin-top: 4px;
+    }
+
+    .link {
+      color: $gray40;
+    }
+  }
+
+  &__submit {
+    grid-area: submit;
+
+    @include mobile {
+      margin-top: 16px;
+    }
+  }
+}
