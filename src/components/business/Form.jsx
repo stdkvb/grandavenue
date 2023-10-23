@@ -6,6 +6,7 @@ const Form = () => {
   const [phone, setPhone] = useState('');
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
     validateForm();
@@ -29,6 +30,9 @@ const Form = () => {
   const handleSubmit = () => {
     if (isFormValid) {
       console.log('Form submitted successfully!');
+      setName('');
+      setPhone('');
+      setIsSuccess(true);
     } else {
       console.log('Form has errors. Please correct them.');
     }
@@ -74,6 +78,42 @@ const Form = () => {
       >
         Отправить
       </button>
+      <div
+        className={
+          !isSuccess ? 'form__success' : 'form__success form__success_active'
+        }
+      >
+        <div className='form__success-container'>
+          <svg
+            className='form__success-close'
+            xmlns='http://www.w3.org/2000/svg'
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            onClick={() => {
+              setIsSuccess(false);
+            }}
+          >
+            <path
+              d='M6 6L12 12M12 12L18 18M12 12L6 18M12 12L18 6'
+              stroke='#212529'
+              stroke-width='2'
+              stroke-linecap='round'
+            />
+          </svg>
+          <h3>Успешно!</h3>
+          <p>Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.</p>
+          <span
+            className='button button_black'
+            onClick={() => {
+              setIsSuccess(false);
+            }}
+          >
+            отлично!
+          </span>
+        </div>
+      </div>
     </div>
   );
 };
