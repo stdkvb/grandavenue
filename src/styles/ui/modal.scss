@@ -1,0 +1,58 @@
+.modal {
+  display: flex;
+  padding: 12px;
+
+  @include mobile {
+    flex-direction: column-reverse;
+    gap: 20px;
+    padding: 0;
+  }
+
+  &__views {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .button {
+      width: 94px;
+      text-align: center;
+
+      @include mobile {
+        width: 69px;
+        padding: 8px;
+      }
+
+      &.active {
+        background-color: $black;
+        color: $white;
+        border-color: $black;
+      }
+    }
+
+    @include mobile {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+
+    @include mobile {
+      align-self: flex-end;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 657px;
+  }
+}
+
+.ReactModal__Content--after-open {
+  @include tablet_small {
+    max-width: 92%;
+  }
+}
