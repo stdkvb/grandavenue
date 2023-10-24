@@ -1,11 +1,19 @@
 .modal {
-  display: flex;
-  padding: 12px;
+  padding: 48px;
+  text-align: center;
 
   @include mobile {
-    flex-direction: column-reverse;
-    gap: 20px;
-    padding: 0;
+    padding: 32px 24px;
+  }
+  &_layouts {
+    display: flex;
+    padding: 24px;
+
+    @include mobile {
+      flex-direction: column-reverse;
+      gap: 20px;
+      padding: 12px;
+    }
   }
 
   &__views {
@@ -37,6 +45,9 @@
 
   &__close {
     cursor: pointer;
+    position: absolute;
+    right: 12px;
+    top: 12px;
 
     @include mobile {
       align-self: flex-end;
@@ -48,6 +59,34 @@
     height: 100%;
     object-fit: cover;
     max-width: 657px;
+  }
+
+  h3 {
+    color: $black;
+    font-size: 30px;
+    text-transform: uppercase;
+    @include HeliosBold;
+    margin-bottom: 24px;
+
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+
+  &__message {
+    display: block;
+    @include HeliosRegular;
+    font-size: 24px;
+    color: $black;
+    margin-bottom: 24px;
+
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+
+  &__button {
+    width: 100%;
   }
 }
 

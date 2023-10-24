@@ -1,30 +1,37 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
+import Modal from 'react-modal';
 
 const Form = ({ inModal }) => {
+  //modal control
+  const [isOpen, setIsOpen] = useState(false);
+  const customStyles = {
+    overlay: {
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      padding: '0',
+      borderRadius: '0',
+    },
+  };
+
+  //form validation
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  function openPopup() {
-    setIsPopupOpen(true);
-    document.body.style.overflow = 'hidden';
-    document.body.style.paddingRight = '15px';
-  }
-
-  function closePopup() {
-    setIsPopupOpen(false);
-    document.body.style.overflow = 'unset';
-    document.body.style.paddingRight = '0';
-  }
 
   useEffect(() => {
     validateForm();
   }, [name, phone]);
-  // Validate form
+
   const validateForm = () => {
     let errors = {};
 
@@ -45,7 +52,7 @@ const Form = ({ inModal }) => {
       console.log('Form submitted successfully!');
       setName('');
       setPhone('');
-      openPopup();
+      setIsOpen(true);
     } else {
       console.log('Form has errors. Please correct them.');
     }
@@ -53,7 +60,7 @@ const Form = ({ inModal }) => {
 
   return (
     <>
-      <div className={!inModal ? 'form' : 'form form_column'}>
+      <div className={!inModal ? 'form' : 'form form_modal'}>
         <div className='form__name'>
           <div className={!name ? 'input' : 'input valid'}>
             <input
@@ -96,25 +103,36 @@ const Form = ({ inModal }) => {
           Отправить
         </button>
       </div>
-      <div className={!isPopupOpen ? 'popup' : 'popup popup_active'}>
-        <div className='popup__container'>
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={() => setIsOpen(false)}
+        style={customStyles}
+        ariaHideApp={false}
+      >
+        <div className='modal'>
+          <h3>Успешно!</h3>
+          <span className='modal__message'>
+            Ваша заявка отправлена.
+            <br />
+            Мы свяжемся с вами
+            <br /> в ближайшее время.
+          </span>
+          <button
+            className='modal__button button button_black'
+            onClick={() => setIsOpen(false)}
+          >
+            отлично!
+          </button>
           <Image
-            className='popup__close'
-            src='images/close-modal_black.svg'
+            className='modal__close'
+            src={'/images/close-modal_black.svg'}
             width={24}
             height={24}
             alt='close'
-            onClick={closePopup}
+            onClick={() => setIsOpen(false)}
           />
-          <h3>Успешно!</h3>
-          <span className='popup__message'>
-            Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.
-          </span>
-          <span className='button button_black' onClick={closePopup}>
-            отлично!
-          </span>
         </div>
-      </div>
+      </Modal>
     </>
   );
 };

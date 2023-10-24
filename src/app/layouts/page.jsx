@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Modal from 'react-modal';
 
 const Layouts = () => {
+  //modal control
   const [isOpen, setIsOpen] = useState(false);
   const customStyles = {
     overlay: {
@@ -17,10 +18,11 @@ const Layouts = () => {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      padding: '12px',
+      padding: '0',
       borderRadius: '0',
     },
   };
+
   return (
     <>
       <section className='layouts'>
@@ -116,7 +118,7 @@ const Layouts = () => {
         style={customStyles}
         ariaHideApp={false}
       >
-        <div className='modal'>
+        <div className='modal modal_layouts'>
           <div className='modal__views'>
             <span className='layouts__subtitle'>Вид:</span>
             <span className='button button_black-border button_small active'>

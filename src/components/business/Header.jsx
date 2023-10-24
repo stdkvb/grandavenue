@@ -1,30 +1,19 @@
 'use client';
 import { useState } from 'react';
+import Modal from 'react-modal';
 import useSWR from 'swr';
 import Link from 'next/link';
 import Image from 'next/image';
-
 import Form from './Form';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const Header = ({ color }) => {
+  //get data
   const { data, error } = useSWR('https://grandavenue.ru/api/header', fetcher);
 
+  //menu control
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isFormOpen, setIsFormOpen] = useState(false);
-
-  function openForm() {
-    setIsFormOpen(true);
-    document.body.style.overflow = 'hidden';
-    document.body.style.paddingRight = '15px';
-  }
-
-  function closeForm() {
-    setIsFormOpen(false);
-    document.body.style.overflow = 'unset';
-    document.body.style.paddingRight = '0';
-  }
 
   function openMenu() {
     setIsMenuOpen(true);
@@ -38,6 +27,24 @@ const Header = ({ color }) => {
     document.body.style.paddingRight = '0';
   }
 
+  //modal control
+  const [isOpen, setIsOpen] = useState(false);
+  const customStyles = {
+    overlay: {
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    },
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      padding: '0',
+      borderRadius: '0',
+    },
+  };
+
   return (
     <>
       <header className={'header container ' + color}>
@@ -50,7 +57,7 @@ const Header = ({ color }) => {
             onClick={openMenu}
           />
 
-          <div href={'/#'} className='header__discount' onClick={openForm}>
+          <div className='header__discount' onClick={() => setIsOpen(true)}>
             <Image src='images/sale.svg' width={24} height={24} alt='sale' />
             <span>Скидка до 15% в октябре</span>
           </div>
@@ -101,7 +108,7 @@ const Header = ({ color }) => {
             </nav>
             <span
               className='menu__callback button button_secondary'
-              onClick={openForm}
+              onClick={() => setIsOpen(true)}
             >
               Заказать звонок
             </span>
@@ -145,20 +152,25 @@ const Header = ({ color }) => {
           </div>
         </div>
       </header>
-      <div className={!isFormOpen ? 'popup' : 'popup popup_active'}>
-        <div className='popup__container'>
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={() => setIsOpen(false)}
+        style={customStyles}
+        ariaHideApp={false}
+      >
+        <div className='modal'>
+          <h3>Обратный звонок</h3>
+          <Form inModal={true} />
           <Image
-            className='popup__close'
-            src='images/close-modal_black.svg'
+            className='modal__close'
+            src={'/images/close-modal_black.svg'}
             width={24}
             height={24}
             alt='close'
-            onClick={closeForm}
+            onClick={() => setIsOpen(false)}
           />
-          <h3>Обратный звонок</h3>
-          <Form inModal={true} />
         </div>
-      </div>
+      </Modal>
     </>
   );
 };
