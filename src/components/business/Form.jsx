@@ -1,6 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
-import Popup from '../ui/popup';
 
 const Form = ({ inModal }) => {
   const [name, setName] = useState('');
@@ -58,6 +58,7 @@ const Form = ({ inModal }) => {
           <div className={!name ? 'input' : 'input valid'}>
             <input
               className={!inModal ? '' : 'input_black'}
+              type='text'
               placeholder='Ваше имя'
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -69,6 +70,7 @@ const Form = ({ inModal }) => {
           <div className={!phone ? 'input' : 'input valid'}>
             <input
               className={!inModal ? '' : 'input_black'}
+              type='text'
               placeholder='Ваш телефон'
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -96,22 +98,14 @@ const Form = ({ inModal }) => {
       </div>
       <div className={!isPopupOpen ? 'popup' : 'popup popup_active'}>
         <div className='popup__container'>
-          <svg
+          <Image
             className='popup__close'
-            xmlns='http://www.w3.org/2000/svg'
-            width='24'
-            height='24'
-            viewBox='0 0 24 24'
-            fill='none'
+            src='images/close-modal_black.svg'
+            width={24}
+            height={24}
+            alt='close'
             onClick={closePopup}
-          >
-            <path
-              d='M6 6L12 12M12 12L18 18M12 12L6 18M12 12L18 6'
-              stroke='#212529'
-              stroke-width='2'
-              stroke-linecap='round'
-            />
-          </svg>
+          />
           <h3>Успешно!</h3>
           <span className='popup__message'>
             Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.

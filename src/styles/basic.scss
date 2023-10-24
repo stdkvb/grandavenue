@@ -101,17 +101,17 @@ a {
 }
 
 .swiper-button-next::after {
-  content: url(../assets/images/next.svg) !important;
+  content: url('/images/next.svg') !important;
 
   @include mobile {
-    content: url(../assets/images/next_small.svg) !important;
+    content: url('/images/next_small.svg') !important;
   }
 }
 
 .swiper-button-prev::after {
-  content: url(../assets/images/prev.svg) !important;
+  content: url('/images/prev.svg') !important;
 
   @include mobile {
-    content: url(../assets/images/prev_small.svg) !important;
+    content: url('/images/prev_small.svg') !important;
   }
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Layouts = () => {
   return (
@@ -26,25 +27,18 @@ const Layouts = () => {
         <div className='layouts__content'>
           <div className='layouts__column'>
             <div className='layouts__image'>
-              <img src='https://s3-alpha-sig.figma.com/img/2f51/a189/e034ef0364d46c95048a54a67549285c?Expires=1698624000&Signature=Eq4DUB7G2tRn4CnAunKtF-pa3DKTn3zPrOr22yfoKBmP6c5kxz~D5iXYG8zDj6dXb-0zqJYDacQ9MtNhipklPmAwf860icTfbX0iwiTyMshKXkeihuc9G-1dirgo1TehxLZbkwohStXP4Oz10GPkItAwmTbH1fK0Pn2OXA7mWzxeAlP~FH6RUdgCc9P1czmT0Mbb625lU6r0I-wAXKKKKRr-GJ2-udgwTS3twAqiUsuw8vkOft71BgmKI3CQZ~LfZ6nq7fcLwhY9FnhYJ8B3-X2kaoPcz4C-rf3Q~EU-hS8Z6g5wdz-m3-ADFUudK9mil8Yvlvb4OixatxcRd3aIfw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4' />
-              <svg
+              <Image
+                src='https://s3-alpha-sig.figma.com/img/2f51/a189/e034ef0364d46c95048a54a67549285c?Expires=1698624000&Signature=Eq4DUB7G2tRn4CnAunKtF-pa3DKTn3zPrOr22yfoKBmP6c5kxz~D5iXYG8zDj6dXb-0zqJYDacQ9MtNhipklPmAwf860icTfbX0iwiTyMshKXkeihuc9G-1dirgo1TehxLZbkwohStXP4Oz10GPkItAwmTbH1fK0Pn2OXA7mWzxeAlP~FH6RUdgCc9P1czmT0Mbb625lU6r0I-wAXKKKKRr-GJ2-udgwTS3twAqiUsuw8vkOft71BgmKI3CQZ~LfZ6nq7fcLwhY9FnhYJ8B3-X2kaoPcz4C-rf3Q~EU-hS8Z6g5wdz-m3-ADFUudK9mil8Yvlvb4OixatxcRd3aIfw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+                fill={true}
+                alt='layout'
+              />
+              <Image
                 className='layouts__zoom'
-                xmlns='http://www.w3.org/2000/svg'
-                width='150'
-                height='150'
-                viewBox='0 0 150 150'
-                fill='none'
-              >
-                <g opacity='0.7'>
-                  <path
-                    d='M43.75 62.5H62.5M62.5 62.5H81.25M62.5 62.5V43.75M62.5 62.5V81.25M93.75 93.75L131.25 131.25M62.5 106.25C38.3375 106.25 18.75 86.6625 18.75 62.5C18.75 38.3375 38.3375 18.75 62.5 18.75C86.6625 18.75 106.25 38.3375 106.25 62.5C106.25 86.6625 86.6625 106.25 62.5 106.25Z'
-                    stroke='white'
-                    stroke-width='6'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                  />
-                </g>
-              </svg>
+                src={'/images/zoom.svg'}
+                width={150}
+                height={150}
+                alt='zoom'
+              />
             </div>
             <div className='layouts__views'>
               <span className='layouts__subtitle'>Вид:</span>

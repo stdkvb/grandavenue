@@ -36,11 +36,11 @@
     width: fit-content;
 
     &::after {
-      content: url(../../assets/images/close.svg);
+      content: url(../../../public/images/close.svg);
     }
 
     &:hover::after {
-      content: url(../../assets/images/close_hover.svg);
+      content: url(../../../public/images/close_hover.svg);
     }
 
     @include mobile {
@@ -49,7 +49,7 @@
       right: 0;
       margin: 0 auto;
       &::after {
-        content: url(../../assets/images/close_small.svg);
+        content: url(../../../public/images/close_small.svg);
       }
     }
   }

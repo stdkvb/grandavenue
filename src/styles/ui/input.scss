@@ -33,7 +33,7 @@
 
   &.valid {
     &::after {
-      content: url(../../assets/images/check.svg);
+      content: url('/images/check.svg');
       position: absolute;
       right: 16px;
       top: 16px;
