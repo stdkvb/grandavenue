@@ -1,36 +1,68 @@
 import Link from 'next/link';
-import Image from 'next/image';
 
 export const metadata = {
   title: 'GrandAvenue | Расположение',
 };
 
-const Location = () => {
+async function getData() {
+  const res = await fetch('https://grandavenue.ru/api/location', {
+    next: { revalidate: 10 },
+  });
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
+}
+
+const Location = async () => {
+  const data = await getData();
+  console.log(data);
+
   return (
     <section className='page location'>
-      <div className='location__map'>
-        <div className='location__map-container'>
-          <img
+      <div className='location__wrapper'>
+        <div className='location__map'>
+          <div
             className='location__background'
-            src='https://s3-alpha-sig.figma.com/img/1647/064c/f73b83cfb5c03afe5d679b1b763c51c6?Expires=1699228800&Signature=quBTB3odIpaj4hDtUeCf05jD7uP0b8-kTSONYL2Mk2bbAmfMZeY7tXt62TRmBshn2H5XDmkRy9QgPnxrkjj1hwCsVHUOakpKzvFsPQmmC6qILk1dRMcgnOSO6TUayXfjfADqddhVgu~wHpVZo8KVcqBjpTOScINXEZ9RydzX7s53Sc1KyRjMy-0QHojAVr5xejslCMAxTqeYMyWVVCmM-CBdaGTZE-vleXmxP4~MrC-Ae6Dm0-21H71iJlOsApurOdjrRXYZXmbpf-JZat5fWOW-Xnyxao8xP3Xy9YzFm~IfH0jHvMHbBL~gh3sSrsN~bfYvYJbaDJKt3eqrPSzkGw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-            alt='map'
+            style={{
+              backgroundImage: `url(/images/map-desktop.png)`,
+            }}
+          ></div>
+          <img
+            className='location__background-mobile'
+            src='images/map-mobile.png'
           />
-          <Image
+          <div
             className='location__base'
-            width={54}
-            height={72}
-            src='/images/base.svg'
-          />
-          <Link href={'/location/1'} className='location__point' key={1}>
-            <Image src={'/images/park.svg'} width={42} height={56} alt='park' />
-          </Link>
+            style={{
+              backgroundImage: `url("/images/base.svg")`,
+            }}
+          ></div>
+          <Link
+            href={'/location/1'}
+            className='location__point'
+            style={{
+              backgroundImage: `url("/images/park.svg")`,
+              left: `51%`,
+              top: `31%`,
+            }}
+          ></Link>
+          <Link
+            href={'/location/2'}
+            className='location__point'
+            style={{
+              backgroundImage: `url("/images/playground.svg")`,
+              left: `25%`,
+              top: `63%`,
+            }}
+          ></Link>
         </div>
       </div>
-      <h1>В центре города, в сердце событий</h1>
-      <p>
-        Выгодное расположение на стыке географического и исторического центров
-        города
-      </p>
+
+      <h1>{data.data.title}</h1>
+      <p>{data.data.additionalText}</p>
     </section>
   );
 };

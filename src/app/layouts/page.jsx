@@ -18,6 +18,8 @@ const Layouts = () => {
     fetcher
   );
 
+  console.log(data);
+
   //modal control
   const [isOpen, setIsOpen] = useState(false);
   const [currentLayout, setCurrentLayout] = useState(null);
@@ -39,11 +41,6 @@ const Layouts = () => {
     },
   };
 
-  //filter control
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  //views control
-  const views = ['схема', 'сверху', 'сбоку'];
   const [activeView, setActiveView] = useState(0);
   const [modalActiveView, setModalActiveView] = useState(activeView);
 
@@ -58,6 +55,12 @@ const Layouts = () => {
     setCurrentLayout(null);
     setModalActiveView(0);
   };
+
+  //filter control
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  //views control
+  const views = ['схема', 'сверху', 'сбоку'];
 
   return (
     <>

@@ -17,6 +17,8 @@
 
   .container {
     padding-top: 50px;
+    position: absolute;
+    z-index: 4;
 
     @include mobile {
       padding-top: 98px;
@@ -59,6 +61,7 @@
     height: 100%;
     object-fit: cover;
     position: absolute !important;
+    z-index: 3 !important;
   }
 
   &__preview {
@@ -68,6 +71,7 @@
     right: 0;
     width: fit-content;
     margin: auto;
+    z-index: 3 !important;
 
     @include mobile {
       bottom: 32px;

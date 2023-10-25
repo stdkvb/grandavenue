@@ -22,20 +22,24 @@ const Parking = async () => {
   console.log(data);
 
   return (
-    <section className='page welcome'>
-      {/* <Image
-        fill={true}
-        className='page__background'
-        src={'https://grandavenue.ru' + data.data.fileUrl}
-        alt='photo'
-      />
-      <div className='container'>
-        <h1>{data.data.title}</h1>
-        <Link href={data.data.btnLink} className='button'>
-          Выбрать место
-        </Link>
-      </div> */}
-    </section>
+    <>
+      {data.data.map((item) => (
+        <section className='page welcome'>
+          <Image
+            fill={true}
+            className='page__background'
+            src={'https://grandavenue.ru' + item.fileUrl}
+            alt='photo'
+          />
+          <div className='container'>
+            <h1>{item.title}</h1>
+            <Link href={'' && item.btnLink} className='button'>
+              Выбрать место
+            </Link>
+          </div>
+        </section>
+      ))}
+    </>
   );
 };
 
