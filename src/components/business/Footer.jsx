@@ -1,19 +1,34 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-const Footer = () => {
+async function getData() {
+  const res = await fetch('https://grandavenue.ru/api/contacts', {
+    next: { revalidate: 10 },
+  });
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
+}
+
+const Footer = async () => {
+  const data = await getData();
+  console.log(data);
+
   return (
     <footer className='footer'>
-      <Link href={'tel:+73472017063'} className='footer__phone link'>
-        +7 (347) 201-70-63
+      <Link href={'tel:' + data.data.phone} className='footer__phone link'>
+        {data.data.phone}
       </Link>
-      <Link href={'mailto:sale@1trest.city'} className='footer__mail link'>
-        sale@1trest.city
+      <Link href={'mailto:' + data.data.email} className='footer__mail link'>
+        {data.data.email}
       </Link>
       <div className='footer__row'>
         <div className='footer__office'>
           <span>Офис продаж:</span>
-          <span>Группа компаний «Первый Трест» г. Уфа, ул. Цюрупы, 30</span>
+          <span>{data.data.address}</span>
           <span>ПН-ПТ: 9:00 — 20:00, СБ: 10:00 — 18:00, ВС: выходной</span>
         </div>
         <Link href={''} className='link'>

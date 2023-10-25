@@ -82,10 +82,15 @@
   &__content {
     border: solid 1px $white;
     border-radius: 8px;
-    display: flex;
+    overflow: hidden;
+    display: none;
 
     @include tablet {
       flex-direction: column;
+    }
+
+    &.active {
+      display: flex;
     }
   }
 

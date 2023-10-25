@@ -8,6 +8,8 @@ export const metadata = {
   description: 'Жилой комплекс бизнес-класса от ГК «Первый Трест»',
 };
 
+// const BASE_URL = process.env.NODE_ENV === 'development' ? 'https://' : '';
+
 export default function RootLayout({ children }) {
   return (
     <html lang='ru'>

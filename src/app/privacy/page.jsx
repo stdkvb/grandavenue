@@ -1,5 +1,10 @@
 import Link from 'next/link';
 
+export const metadata = {
+  title: 'GrandAvenue | Политика конфиденциальности',
+  description: 'Жилой комплекс бизнес-класса от ГК «Первый Трест»',
+};
+
 const Privacy = () => {
   return (
     <>

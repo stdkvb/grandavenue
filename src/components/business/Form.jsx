@@ -9,6 +9,7 @@ const Form = ({ inModal }) => {
   const customStyles = {
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      zIndex: '2',
     },
     content: {
       top: '50%',
@@ -52,6 +53,7 @@ const Form = ({ inModal }) => {
       console.log('Form submitted successfully!');
       setName('');
       setPhone('');
+      //open succsess modal
       setIsOpen(true);
     } else {
       console.log('Form has errors. Please correct them.');

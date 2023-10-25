@@ -7,7 +7,7 @@
   position: fixed;
   top: 0;
   width: calc(100% - 140px);
-  z-index: 0;
+  z-index: 2;
 
   @include tablet {
     width: calc(100% - 60px);
@@ -30,6 +30,10 @@
     &:first-of-type {
       gap: 60px;
     }
+  }
+
+  &__burger {
+    cursor: pointer;
   }
 
   &__discount {
@@ -56,7 +60,7 @@
 
     @include mobile {
       z-index: 2;
-      svg:last-of-type {
+      img:last-of-type {
         display: none;
       }
     }

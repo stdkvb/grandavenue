@@ -10,7 +10,11 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const Header = ({ color }) => {
   //get data
-  const { data, error } = useSWR('https://grandavenue.ru/api/header', fetcher);
+  const { data, error, isLoading } = useSWR(
+    'https://grandavenue.ru/api/header',
+    fetcher
+  );
+  // console.log(data)
 
   //menu control
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,6 +36,7 @@ const Header = ({ color }) => {
   const customStyles = {
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      zIndex: '2',
     },
     content: {
       top: '50%',
@@ -50,16 +55,16 @@ const Header = ({ color }) => {
       <header className={'header container ' + color}>
         <div className='header__column'>
           <Image
+            className='header__burger'
             src='images/burger.svg'
             width={24}
             height={24}
             alt='menu'
             onClick={openMenu}
           />
-
           <div className='header__discount' onClick={() => setIsOpen(true)}>
             <Image src='images/sale.svg' width={24} height={24} alt='sale' />
-            <span>Скидка до 15% в октябре</span>
+            <span>{data && !isLoading && data.data.additionalText}</span>
           </div>
         </div>
         <Link href={'/'} className='header__logo'>
@@ -95,16 +100,18 @@ const Header = ({ color }) => {
               onClick={closeMenu}
             />
             <nav className='menu__nav'>
-              {/* {data.data.menu.map((item) => (
-                <Link
-                  key={item.id}
-                  href={item.anchor}
-                  className='link'
-                  onClick={closeMenu}
-                >
-                  {item.title}
-                </Link>
-              ))} */}
+              {data &&
+                !isLoading &&
+                data.data.menu.map((item) => (
+                  <Link
+                    key={item.id}
+                    href={item.anchor}
+                    className='link'
+                    onClick={closeMenu}
+                  >
+                    {item.title}
+                  </Link>
+                ))}
             </nav>
             <span
               className='menu__callback button button_secondary'
@@ -114,14 +121,14 @@ const Header = ({ color }) => {
             </span>
             <div className='menu__office'>
               <span>Офис продаж:</span>
-              <span>Группа компаний «Первый Трест» г. Уфа, ул. Цюрупы, 30</span>
-              <span>ПН-ПТ: 9:00 — 20:00, СБ: 10:00 — 18:00, ВС: выходной</span>
+              <span>{data && !isLoading && data.data.office}</span>
+              <span>{data && !isLoading && data.data.schedule}</span>
             </div>
             <Link href={'tel:+73472017063'} className='menu__phone link'>
               +7 (347) 201-70-63
             </Link>
             <div className='menu__socials'>
-              <Link href={'#viber'}>
+              <Link href={'' && data && !isLoading && data.data.link.viber}>
                 <Image
                   src='images/viber.svg'
                   width={40}
@@ -129,10 +136,10 @@ const Header = ({ color }) => {
                   alt='viber'
                 />
               </Link>
-              <Link href={'#vk'}>
+              <Link href={'' && data && !isLoading && data.data.link.vk}>
                 <Image src='images/vk.svg' width={40} height={40} alt='vk' />
               </Link>
-              <Link href={'#telegram'}>
+              <Link href={'' && data && !isLoading && data.data.link.tg}>
                 <Image
                   src='images/telegram.svg'
                   width={40}
@@ -140,7 +147,7 @@ const Header = ({ color }) => {
                   alt='telegram'
                 />
               </Link>
-              <Link href={'#whatsapp'}>
+              <Link href={'' && data && !isLoading && data.data.link.wa}>
                 <Image
                   src='images/whatsapp.svg'
                   width={40}

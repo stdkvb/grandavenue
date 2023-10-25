@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'GrandAvenue | Главная',
@@ -18,16 +19,18 @@ async function getData() {
 
 const Home = async () => {
   const data = await getData();
-  console.log(data);
+  // console.log(data);
+
   return (
     <section className='page welcome'>
-      <img
+      <Image
         className='page__background'
-        src='https://s3-alpha-sig.figma.com/img/52d4/ecf4/e70ba3fdedfc3f160200a271b14d4a2c?Expires=1698624000&Signature=cxypoAcHLKL2EQJxpKg4TwxqGC7zSgqUyMdc7cFVQ4geVRVtyQo2EZfHhvQf9~3wUZL-KjTokpc4-4djSh78xsvLfc1Uqz1jtc56RdbdTQ3ED-guVoSjKuGNFuRavBAukZINLDkjDGjiwkJh1Gm3e7gdqd~IXGx-PphcrA5S06yJPzwsl8L01auE~yBrpP0ogbtEteEBZHsyM-IWpVRAdfnC3hEg2y14Z6ZNGi~MJQXGetclVRQXRzwioHwKKELydsmVmF7P5tthOhx1j9MV~IX42mAztWwWOiW-xe-eVn1cmx8EwRA8MZLvs05OGzOPBLBNQn~t-ei9ZwVB-cEFtA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+        src={'https://grandavenue.ru' + data.data.fileUrl}
+        fill={true}
+        alt='photo'
       />
       <div className='container'>
         <h1>{data.data.title}</h1>
-        {/* <h1>Жилой комплекс бизнес-класса от ГК «Первый Трест»</h1> */}
         <Link href={'/layouts'} className='button'>
           Выбрать квартиру
         </Link>

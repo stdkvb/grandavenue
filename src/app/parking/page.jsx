@@ -5,22 +5,36 @@ export const metadata = {
   title: 'GrandAvenue | Паркинг',
 };
 
-const Parking = () => {
+async function getData() {
+  const res = await fetch('https://grandavenue.ru/api/parking', {
+    next: { revalidate: 10 },
+  });
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
+}
+
+const Parking = async () => {
+  const data = await getData();
+  console.log(data);
+
   return (
     <section className='page welcome'>
-      <Image
+      {/* <Image
         fill={true}
         className='page__background'
-        src='https://s3-alpha-sig.figma.com/img/a8e5/3c20/326920dab161ab8d3dea1d12009e9571?Expires=1698624000&Signature=Tb-mhDWu1KbzQ2L4Yo26gasHurYHOGsC8RsSG8Is3nw3PQJYku-xJpnTr-Jz49dR9HUIPp~zfe01fcsgd~dpV94ySzSII--S6im4vpaH5E~q6gURNnQdaQD7nholJDtCo~BXrJXfZKNva6vKXwMgnlOkQBbO5R21fArweSFEdWc8riqofnwalYJkr1fnP-KHmhtgurEzcsj--HIzgSnh1IJNcYzqeLHGPv6n35OqGlZVveLH8hE0j8nm1Q5JhAeEw2EI~LtjLumHe67RIAO04eu7T~uWhc0BIKxRIBnePqqMK8Ao9uJMxNYD6VCfchjuVYbop1byPfvvahPfpf388g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+        src={'https://grandavenue.ru' + data.data.fileUrl}
+        alt='photo'
       />
       <div className='container'>
-        <h1>
-          Просторный подземный паркинг с прямым доступом на лифте с любого этажа
-        </h1>
-        <Link href={'/'} className='button'>
+        <h1>{data.data.title}</h1>
+        <Link href={data.data.btnLink} className='button'>
           Выбрать место
         </Link>
-      </div>
+      </div> */}
     </section>
   );
 };

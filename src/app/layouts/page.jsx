@@ -1,15 +1,31 @@
 'use client';
+
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import useSWR from 'swr';
+import { useTitle } from '@/src/hooks';
 import Modal from 'react-modal';
 
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
 const Layouts = () => {
+  useTitle('GrandAvenue | Планировки');
+
+  //get data
+  const { data, error, isLoading } = useSWR(
+    'https://grandavenue.ru/api/layouts',
+    fetcher
+  );
+
   //modal control
   const [isOpen, setIsOpen] = useState(false);
+  const [currentLayout, setCurrentLayout] = useState(null);
+
   const customStyles = {
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      zIndex: '2',
     },
     content: {
       top: '50%',
@@ -23,129 +39,189 @@ const Layouts = () => {
     },
   };
 
+  //filter control
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  //views control
+  const views = ['схема', 'сверху', 'сбоку'];
+  const [activeView, setActiveView] = useState(0);
+  const [modalActiveView, setModalActiveView] = useState(activeView);
+
+  const onModalOpen = (layout) => {
+    setIsOpen(true);
+    setCurrentLayout(layout);
+    setModalActiveView(activeView);
+  };
+
+  const onModalClose = () => {
+    setIsOpen(false);
+    setCurrentLayout(null);
+    setModalActiveView(0);
+  };
+
   return (
     <>
       <section className='layouts'>
         <div className='container container_narrow'>
           <div className='layouts__title'>
             <h2>Планировки</h2>
-            <p>
-              Более N видов планировок бизнес-класса, включая квартиры
-              с террасами и балконами
-            </p>
+            <p>{data && !isLoading && data.data.additionalText}</p>
           </div>
           <div className='layouts__filter'>
             <span className='layouts__subtitle'>Тип квартиры:</span>
             <div className='layouts__filter-list'>
-              <span className='button button_secondary button_small active'>
-                Студия
-              </span>
-              <span className='button button_secondary button_small'>1-к.</span>
-              <span className='button button_secondary button_small'>2-к.</span>
-              <span className='button button_secondary button_small'>3-к.</span>
-              <span className='button button_secondary button_small'>4-к.</span>
+              {data &&
+                !isLoading &&
+                data.data.layouts.map((layout, i) => (
+                  <span
+                    className={
+                      activeIndex === i
+                        ? 'button button_secondary button_small active'
+                        : 'button button_secondary button_small'
+                    }
+                    key={layout.id}
+                    onClick={() => setActiveIndex(i)}
+                  >
+                    {layout.name}
+                  </span>
+                ))}
             </div>
           </div>
-          <div className='layouts__content'>
-            <div className='layouts__column'>
-              <div className='layouts__image'>
-                <img
-                  src='https://s3-alpha-sig.figma.com/img/2f51/a189/e034ef0364d46c95048a54a67549285c?Expires=1698624000&Signature=Eq4DUB7G2tRn4CnAunKtF-pa3DKTn3zPrOr22yfoKBmP6c5kxz~D5iXYG8zDj6dXb-0zqJYDacQ9MtNhipklPmAwf860icTfbX0iwiTyMshKXkeihuc9G-1dirgo1TehxLZbkwohStXP4Oz10GPkItAwmTbH1fK0Pn2OXA7mWzxeAlP~FH6RUdgCc9P1czmT0Mbb625lU6r0I-wAXKKKKRr-GJ2-udgwTS3twAqiUsuw8vkOft71BgmKI3CQZ~LfZ6nq7fcLwhY9FnhYJ8B3-X2kaoPcz4C-rf3Q~EU-hS8Z6g5wdz-m3-ADFUudK9mil8Yvlvb4OixatxcRd3aIfw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-                  alt='layout'
-                />
-                <Image
-                  className='layouts__zoom'
-                  src={'/images/zoom.svg'}
-                  width={150}
-                  height={150}
-                  alt='zoom'
-                  onClick={() => setIsOpen(true)}
-                />
-              </div>
-              <div className='layouts__views'>
-                <span className='layouts__subtitle'>Вид:</span>
-                <span className='button button_secondary button_small active'>
-                  схема
-                </span>
-                <span className='button button_secondary button_small'>
-                  сверху
-                </span>
-                <span className='button button_secondary button_small'>
-                  сбоку
-                </span>
-              </div>
-            </div>
-            <div className='layouts__column'>
-              <div className='layouts__text'>
-                <h3>Однокомнатная с солнечной спальней</h3>
-                <div className='layouts__info'>
-                  <div className='layouts__info-item'>
-                    <span className='layouts__subtitle'>Срок сдачи:</span>
-                    <span>1 кв. 2025</span>
+          {data &&
+            !isLoading &&
+            data.data.layouts.map((layout, i) => (
+              <div
+                className={
+                  activeIndex === i
+                    ? 'layouts__content active'
+                    : 'layouts__content'
+                }
+                key={layout.id}
+              >
+                <div className='layouts__column'>
+                  <div className='layouts__image'>
+                    <img
+                      src={
+                        'https://grandavenue.ru' +
+                        ((activeView === 0 && layout.viewsImageUrl.schema) ||
+                          (activeView === 1 && layout.viewsImageUrl.top) ||
+                          (activeView === 2 && layout.viewsImageUrl.side))
+                      }
+                      alt='layout'
+                    />
+                    <Image
+                      className='layouts__zoom'
+                      src='images/zoom.svg'
+                      width={150}
+                      height={150}
+                      alt='zoom'
+                      onClick={() => onModalOpen(layout)}
+                    />
                   </div>
-                  <div className='layouts__info-item'>
-                    <span className='layouts__subtitle'>Площадь:</span>
-                    <span>21,3 м2</span>
-                  </div>
-                  <div className='layouts__info-item'>
-                    <span className='layouts__subtitle'>Кв. № :</span>
-                    <span>55</span>
-                  </div>
-                  <div className='layouts__info-item'>
-                    <span className='layouts__subtitle'>Этаж:</span>
-                    <span>5</span>
+                  <div className='layouts__views'>
+                    <span className='layouts__subtitle'>Вид:</span>
+                    {views.map((item, i) => (
+                      <span
+                        className={
+                          activeView === i
+                            ? 'button button_secondary button_small active'
+                            : 'button button_secondary button_small'
+                        }
+                        key={item.id}
+                        onClick={() => setActiveView(i)}
+                      >
+                        {item}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                <p>
-                  Классическая планировка с одной комнатой. В кухне —
-                  встречаетесь с близкими за небольшим столом, а в спальне
-                  вы спите как сурок до самой весны.
-                </p>
+                <div className='layouts__column'>
+                  <div className='layouts__text'>
+                    <h3>{layout.fullName}</h3>
+                    <div className='layouts__info'>
+                      <div className='layouts__info-item'>
+                        <span className='layouts__subtitle'>Срок сдачи:</span>
+                        <span>{layout.term}</span>
+                      </div>
+                      <div className='layouts__info-item'>
+                        <span className='layouts__subtitle'>Площадь:</span>
+                        <span>{layout.area}</span>
+                      </div>
+                      <div className='layouts__info-item'>
+                        <span className='layouts__subtitle'>Кв. № :</span>
+                        <span>55</span>
+                      </div>
+                      <div className='layouts__info-item'>
+                        <span className='layouts__subtitle'>Этаж:</span>
+                        <span>5</span>
+                      </div>
+                    </div>
+                    <p>{layout.description}</p>
+                  </div>
+                  <div className='layouts__buttons'>
+                    <span className='button'>Узнать стоимость</span>
+                    <Link
+                      href={'' && data && !isLoading && layout.link}
+                      className='button button_secondary'
+                    >
+                      3D-тур
+                    </Link>
+                  </div>
+                </div>
               </div>
-              <div className='layouts__buttons'>
-                <span className='button'>Узнать стоимость</span>
-                <Link href={''} className='button button_secondary'>
-                  3D-тур
-                </Link>
+            ))}
+
+          <Modal
+            isOpen={isOpen}
+            onRequestClose={() => setIsOpen(false)}
+            style={customStyles}
+            ariaHideApp={false}
+          >
+            <div className='modal modal_layouts'>
+              <div className='modal__views'>
+                <span className='layouts__subtitle'>Вид:</span>
+                {views.map((item, i) => (
+                  <span
+                    className={
+                      modalActiveView === i
+                        ? 'button button_black-border button_small active'
+                        : 'button button_black-border button_small'
+                    }
+                    key={item.id}
+                    onClick={() => setModalActiveView(i)}
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
+              <img
+                className='modal__image'
+                src={
+                  'https://grandavenue.ru' +
+                  ((modalActiveView === 0 &&
+                    currentLayout &&
+                    currentLayout.viewsImageUrl.schema) ||
+                    (modalActiveView === 1 &&
+                      currentLayout &&
+                      currentLayout.viewsImageUrl.top) ||
+                    (modalActiveView === 2 &&
+                      currentLayout &&
+                      currentLayout.viewsImageUrl.side))
+                }
+                alt='layout'
+              />
+              <Image
+                className='modal__close'
+                src={'/images/close-modal_black.svg'}
+                width={24}
+                height={24}
+                alt='close'
+                onClick={onModalClose}
+              />
             </div>
-          </div>
+          </Modal>
         </div>
       </section>
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={() => setIsOpen(false)}
-        style={customStyles}
-        ariaHideApp={false}
-      >
-        <div className='modal modal_layouts'>
-          <div className='modal__views'>
-            <span className='layouts__subtitle'>Вид:</span>
-            <span className='button button_black-border button_small active'>
-              схема
-            </span>
-            <span className='button button_black-border button_small'>
-              сверху
-            </span>
-            <span className='button button_black-border button_small'>
-              сбоку
-            </span>
-          </div>
-          <img
-            className='modal__image'
-            src='https://s3-alpha-sig.figma.com/img/2f51/a189/e034ef0364d46c95048a54a67549285c?Expires=1698624000&Signature=Eq4DUB7G2tRn4CnAunKtF-pa3DKTn3zPrOr22yfoKBmP6c5kxz~D5iXYG8zDj6dXb-0zqJYDacQ9MtNhipklPmAwf860icTfbX0iwiTyMshKXkeihuc9G-1dirgo1TehxLZbkwohStXP4Oz10GPkItAwmTbH1fK0Pn2OXA7mWzxeAlP~FH6RUdgCc9P1czmT0Mbb625lU6r0I-wAXKKKKRr-GJ2-udgwTS3twAqiUsuw8vkOft71BgmKI3CQZ~LfZ6nq7fcLwhY9FnhYJ8B3-X2kaoPcz4C-rf3Q~EU-hS8Z6g5wdz-m3-ADFUudK9mil8Yvlvb4OixatxcRd3aIfw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-            alt='layout'
-          />
-          <Image
-            className='modal__close'
-            src={'/images/close-modal_black.svg'}
-            width={24}
-            height={24}
-            alt='close'
-            onClick={() => setIsOpen(false)}
-          />
-        </div>
-      </Modal>
     </>
   );
 };

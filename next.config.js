@@ -6,7 +6,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 's3-alpha-sig.figma.com',
+        hostname: 'grandavenue.ru',
         port: '',
       },
     ],
