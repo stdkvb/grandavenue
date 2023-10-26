@@ -10,6 +10,7 @@ import 'swiper/css/thumbs';
 import { useTitle } from '@/src/hooks';
 import useSWR from 'swr';
 import Modal from 'react-modal';
+import PageWrapper from '@/src/components/business/PageWrapper';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -74,91 +75,69 @@ const Location = () => {
   }, []);
 
   return (
-    <section className='page location'>
-      <div className='location__wrapper'>
-        <div className='location__map'>
-          <div
-            className='location__background'
-            style={{
-              backgroundImage: `url(/images/map-desktop.png)`,
-            }}
-          ></div>
-          <img
-            className='location__background-mobile'
-            src='images/map-mobile.png'
-          />
-          <div
-            className='location__base'
-            style={{
-              backgroundImage: `url("/images/base.svg")`,
-            }}
-          ></div>
-          <div
-            onClick={() => onModalOpen(points[0])}
-            className='location__point'
-            style={{
-              backgroundImage: `url("/images/park.svg")`,
-              left: `51%`,
-              top: `31%`,
-            }}
-          ></div>
-          <div
-            onClick={() => onModalOpen(points[1])}
-            className='location__point'
-            style={{
-              backgroundImage: `url("/images/playground.svg")`,
-              left: `25%`,
-              top: `63%`,
-            }}
-          ></div>
-        </div>
-      </div>
-
-      <h1>{data && !isLoading && data.data.title}</h1>
-      <p>{data && !isLoading && data.data.additionalText}</p>
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={() => setIsOpen(false)}
-        style={customStyles}
-        ariaHideApp={false}
-      >
-        <div className='gallery__close' onClick={onModalClose}></div>
-        <div className='gallery'>
-          <div className='container'>
-            <h2>{currentPoint && currentPoint.title}</h2>
+    <PageWrapper>
+      <section className='page location'>
+        <div className='location__wrapper'>
+          <div className='location__map'>
+            <div
+              className='location__background'
+              style={{
+                backgroundImage: `url(/images/map-desktop.png)`,
+              }}
+            ></div>
+            <img
+              className='location__background-mobile'
+              src='images/map-mobile.png'
+            />
+            <div
+              className='location__base'
+              style={{
+                backgroundImage: `url("/images/base.svg")`,
+              }}
+            ></div>
+            <div
+              onClick={() => onModalOpen(points[0])}
+              className='location__point'
+              style={{
+                backgroundImage: `url("/images/park.svg")`,
+                left: `51%`,
+                top: `31%`,
+              }}
+            ></div>
+            <div
+              onClick={() => onModalOpen(points[1])}
+              className='location__point'
+              style={{
+                backgroundImage: `url("/images/playground.svg")`,
+                left: `25%`,
+                top: `63%`,
+              }}
+            ></div>
           </div>
-          <Swiper
-            className='gallery__swiper'
-            spaceBetween={0}
-            slidesPerView={1}
-            thumbs={{
-              swiper:
-                thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
-            }}
-            modules={[FreeMode, Navigation, Thumbs]}
-          >
-            {currentPoint &&
-              currentPoint.images.map((image) => (
-                <SwiperSlide key={image.id}>
-                  <Image
-                    src={'https://grandavenue.ru' + image}
-                    fill={true}
-                    alt='photo'
-                  />
-                </SwiperSlide>
-              ))}
-          </Swiper>
-          <div className='gallery__preview'>
+        </div>
+
+        <h1>{data && !isLoading && data.data.title}</h1>
+        <p>{data && !isLoading && data.data.additionalText}</p>
+        <Modal
+          isOpen={isOpen}
+          onRequestClose={() => setIsOpen(false)}
+          style={customStyles}
+          ariaHideApp={false}
+        >
+          <div className='gallery__close' onClick={onModalClose}></div>
+          <div className='gallery'>
+            <div className='container'>
+              <h2>{currentPoint && currentPoint.title}</h2>
+            </div>
             <Swiper
-              className='gallery__swiper-preview'
-              ref={sliderRef}
-              onSwiper={setThumbsSwiper}
-              spaceBetween={10}
-              slidesPerView={2}
-              freeMode={true}
-              watchSlidesProgress={true}
-              modules={[FreeMode, Thumbs]}
-              loop={true}
+              className='gallery__swiper'
+              spaceBetween={0}
+              slidesPerView={1}
+              thumbs={{
+                swiper:
+                  thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+              }}
+              modules={[FreeMode, Navigation, Thumbs]}
             >
               {currentPoint &&
                 currentPoint.images.map((image) => (
@@ -171,18 +150,42 @@ const Location = () => {
                   </SwiperSlide>
                 ))}
             </Swiper>
-            <div
-              className='swiper-button-prev prev-arrow'
-              onClick={handlePrev}
-            />
-            <div
-              className='swiper-button-next next-arrow'
-              onClick={handleNext}
-            />
+            <div className='gallery__preview'>
+              <Swiper
+                className='gallery__swiper-preview'
+                ref={sliderRef}
+                onSwiper={setThumbsSwiper}
+                spaceBetween={10}
+                slidesPerView={2}
+                freeMode={true}
+                watchSlidesProgress={true}
+                modules={[FreeMode, Thumbs]}
+                loop={true}
+              >
+                {currentPoint &&
+                  currentPoint.images.map((image) => (
+                    <SwiperSlide key={image.id}>
+                      <Image
+                        src={'https://grandavenue.ru' + image}
+                        fill={true}
+                        alt='photo'
+                      />
+                    </SwiperSlide>
+                  ))}
+              </Swiper>
+              <div
+                className='swiper-button-prev prev-arrow'
+                onClick={handlePrev}
+              />
+              <div
+                className='swiper-button-next next-arrow'
+                onClick={handleNext}
+              />
+            </div>
           </div>
-        </div>
-      </Modal>
-    </section>
+        </Modal>
+      </section>
+    </PageWrapper>
   );
 };
 

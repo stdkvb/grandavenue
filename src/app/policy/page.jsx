@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PageWrapper from '@/src/components/business/PageWrapper';
 
 export const metadata = {
   title: 'GrandAvenue | Политика конфиденциальности',
@@ -22,7 +23,7 @@ const Policy = async () => {
   // console.log(data);
 
   return (
-    <>
+    <PageWrapper>
       <section className='policy'>
         <div className='container'>
           <h1>{data.data.name}</h1>
@@ -75,7 +76,7 @@ const Policy = async () => {
           </div>
         </div>
       </section>
-    </>
+    </PageWrapper>
   );
 };
 

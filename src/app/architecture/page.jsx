@@ -7,6 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import useSWR from 'swr';
 import { useTitle } from '@/src/hooks';
+import PageWrapper from '@/src/components/business/PageWrapper';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -21,33 +22,35 @@ const Architecture = () => {
   // console.log(data);
 
   return (
-    <section className='page swiper'>
-      <Swiper
-        className='page__swiper'
-        modules={[Navigation, Scrollbar]}
-        spaceBetween={0}
-        slidesPerView={1}
-        navigation
-        scrollbar={{ draggable: true }}
-      >
-        {data &&
-          !isLoading &&
-          data.data.elements.map((item) => (
-            <SwiperSlide key={item.id}>
-              <Image
-                className='page__background'
-                src={'https://grandavenue.ru' + item.file}
-                fill={true}
-                alt='photo'
-              />
-              <div className='container'>
-                <p>{item.additionalText}</p>
-                <h1>{item.title}</h1>
-              </div>
-            </SwiperSlide>
-          ))}
-      </Swiper>
-    </section>
+    <PageWrapper>
+      <section className='page swiper'>
+        <Swiper
+          className='page__swiper'
+          modules={[Navigation, Scrollbar]}
+          spaceBetween={0}
+          slidesPerView={1}
+          navigation
+          scrollbar={{ draggable: true }}
+        >
+          {data &&
+            !isLoading &&
+            data.data.elements.map((item) => (
+              <SwiperSlide key={item.id}>
+                <Image
+                  className='page__background'
+                  src={'https://grandavenue.ru' + item.file}
+                  fill={true}
+                  alt='photo'
+                />
+                <div className='container'>
+                  <p>{item.additionalText}</p>
+                  <h1>{item.title}</h1>
+                </div>
+              </SwiperSlide>
+            ))}
+        </Swiper>
+      </section>
+    </PageWrapper>
   );
 };
 
