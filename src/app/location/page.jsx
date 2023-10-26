@@ -44,6 +44,7 @@ const Location = () => {
       transform: 'translate(-50%, -50%)',
       padding: '0',
       borderRadius: '0',
+      border: 'none',
     },
   };
 
@@ -138,7 +139,7 @@ const Location = () => {
           >
             {currentPoint &&
               currentPoint.images.map((image) => (
-                <SwiperSlide>
+                <SwiperSlide key={image.id}>
                   <Image
                     src={'https://grandavenue.ru' + image}
                     fill={true}
@@ -161,7 +162,7 @@ const Location = () => {
             >
               {currentPoint &&
                 currentPoint.images.map((image) => (
-                  <SwiperSlide>
+                  <SwiperSlide key={image.id}>
                     <Image
                       src={'https://grandavenue.ru' + image}
                       fill={true}

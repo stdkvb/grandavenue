@@ -46,10 +46,10 @@ const Layouts = () => {
   const [modalActiveView, setModalActiveView] = useState(activeView);
 
   const onModalOpen = (layout) => {
-    console.log(layout);
+    // console.log(layout);
     setIsOpen(true);
     setCurrentLayout(layout);
-    console.log(currentLayout);
+    // console.log(currentLayout);
     setModalActiveView(activeView);
   };
 

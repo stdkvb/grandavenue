@@ -26,6 +26,7 @@ const Project = async () => {
         fill={true}
         className='page__background'
         src={'https://grandavenue.ru' + data.data.fileUrl}
+        alt='photo'
       />
       <div className='container'>
         <h1>{data.data.content}</h1>
