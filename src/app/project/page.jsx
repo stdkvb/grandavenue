@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
-export const metadata = {
-  title: 'GrandAvenue | О проекте',
-};
+// export const metadata = {
+//   title: 'GrandAvenue | О проекте',
+// };
 
 async function getData() {
   const res = await fetch('https://grandavenue.ru/api/project', {

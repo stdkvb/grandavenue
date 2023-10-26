@@ -49,8 +49,11 @@ const Form = ({ inModal }) => {
     setIsFormValid(Object.keys(errors).length === 0);
   };
   // Submit
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
     if (isFormValid) {
+      console.log(name, phone);
+      event.preventDefault();
+
       console.log('Form submitted successfully!');
       setName('');
       setPhone('');
@@ -63,12 +66,13 @@ const Form = ({ inModal }) => {
 
   return (
     <>
-      <div className={!inModal ? 'form' : 'form form_modal'}>
+      <form className={!inModal ? 'form' : 'form form_modal'}>
         <div className='form__name'>
           <div className={!name ? 'input' : 'input valid'}>
             <input
               className={!inModal ? '' : 'input_black'}
               type='text'
+              name='name'
               placeholder='Ваше имя'
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -81,6 +85,7 @@ const Form = ({ inModal }) => {
             <input
               className={!inModal ? '' : 'input_black'}
               type='text'
+              name='phone'
               placeholder='Ваш телефон'
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -105,7 +110,7 @@ const Form = ({ inModal }) => {
         >
           Отправить
         </button>
-      </div>
+      </form>
       <Modal
         isOpen={isOpen}
         onRequestClose={() => setIsOpen(false)}
