@@ -72,12 +72,12 @@
   &_disabled {
     border-color: $gray20;
     background: $gray20;
+    color: $black !important;
 
     &:hover {
       border-color: $gray20;
       background: $gray20;
       cursor: auto;
-      color: $black;
     }
   }
 }

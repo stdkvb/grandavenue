@@ -1,5 +1,6 @@
 import { Header } from '../components/business/Header';
 import { CookieConsent } from '../components/business/CookieConsent';
+import PageWrapper from '../components/business/PageWrapper';
 
 import './globals.scss';
 

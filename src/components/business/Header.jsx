@@ -4,7 +4,6 @@ import Modal from 'react-modal';
 import useSWR from 'swr';
 import Link from 'next/link';
 import Image from 'next/image';
-// import { useUrl } from 'nextjs-current-url';
 import { usePathname } from 'next/navigation';
 import Form from './Form';
 
@@ -19,9 +18,8 @@ const Header = ({ color }) => {
   // console.log(data)
 
   //get url
-  // const { href: currentUrl, pathname } = useUrl() ?? {};
   const path = usePathname();
-  console.log(path);
+  // console.log(path);
 
   //menu control
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,7 +57,6 @@ const Header = ({ color }) => {
 
   return (
     <>
-      {/* <header className={'header container ' + color}> */}
       <header
         className={
           'header container ' +
@@ -100,7 +97,10 @@ const Header = ({ color }) => {
           </Link>
           <Link
             href={'/layouts'}
-            className='header__button button button_secondary'
+            className={
+              'header__button button button_secondary ' +
+              (path === '/layouts' && 'button_disabled')
+            }
           >
             Выбрать квартиру
           </Link>

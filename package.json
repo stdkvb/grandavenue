@@ -12,7 +12,6 @@
     "cookies-next": "^4.0.0",
     "framer-motion": "^10.16.4",
     "next": "^13.5.6",
-    "nextjs-current-url": "^1.0.3",
     "posthog-js": "^1.83.1",
     "react": "^18",
     "react-dom": "^18",
