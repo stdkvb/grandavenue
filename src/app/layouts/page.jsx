@@ -18,7 +18,7 @@ const Layouts = () => {
     fetcher
   );
 
-  console.log(data);
+  // console.log(data);
 
   //modal control
   const [isOpen, setIsOpen] = useState(false);
@@ -38,6 +38,7 @@ const Layouts = () => {
       transform: 'translate(-50%, -50%)',
       padding: '0',
       borderRadius: '0',
+      maxWidth: '93%',
     },
   };
 
@@ -45,8 +46,10 @@ const Layouts = () => {
   const [modalActiveView, setModalActiveView] = useState(activeView);
 
   const onModalOpen = (layout) => {
+    console.log(layout);
     setIsOpen(true);
     setCurrentLayout(layout);
+    console.log(currentLayout);
     setModalActiveView(activeView);
   };
 
@@ -150,6 +153,15 @@ const Layouts = () => {
                         <span className='layouts__subtitle'>Площадь:</span>
                         <span>{layout.area}</span>
                       </div>
+                      {/* extra properties of each layout */}
+                      {/* {layout.extraProperties.map((item) => (
+                          <div className='layouts__info-item' key={item.id}>
+                            <span className='layouts__subtitle'>
+                              {item.name}
+                            </span>
+                            <span>{item.value}</span>
+                          </div>
+                        ))} */}
                       <div className='layouts__info-item'>
                         <span className='layouts__subtitle'>Кв. № :</span>
                         <span>55</span>
@@ -164,7 +176,7 @@ const Layouts = () => {
                   <div className='layouts__buttons'>
                     <span className='button'>Узнать стоимость</span>
                     <Link
-                      href={'' && data && !isLoading && layout.link}
+                      href={data && !isLoading && layout.link}
                       className='button button_secondary'
                     >
                       3D-тур

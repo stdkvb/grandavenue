@@ -91,9 +91,3 @@
     width: 100%;
   }
 }
-
-.ReactModal__Content--after-open {
-  @include tablet_small {
-    max-width: 92%;
-  }
-}

@@ -3,7 +3,7 @@
 import Form from '@/src/components/business/Form';
 import Footer from '@/src/components/business/Footer';
 import { useTitle } from '@/src/hooks';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 const Contacts = () => {
   useTitle('GrandAvenue | Контакты');

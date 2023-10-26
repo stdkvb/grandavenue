@@ -1,49 +1,52 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
+import useSWR from 'swr';
 
-async function getData() {
-  const res = await fetch('https://grandavenue.ru/api/contacts', {
-    next: { revalidate: 10 },
-  });
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
+const Footer = () => {
+  //get data
+  const { data, error, isLoading } = useSWR(
+    'https://grandavenue.ru/api/contacts',
+    fetcher
+  );
 
-  return res.json();
-}
-
-const Footer = async () => {
-  const data = await getData();
   console.log(data);
 
   return (
     <footer className='footer'>
-      <Link href={'tel:' + data.data.phone} className='footer__phone link'>
-        {data.data.phone}
+      <Link
+        href={'' && 'tel:' + data && !isLoading && data.data.phone}
+        className='footer__phone link'
+      >
+        {data && !isLoading && data.data.phone}
       </Link>
-      <Link href={'mailto:' + data.data.email} className='footer__mail link'>
-        {data.data.email}
+      <Link
+        href={'' && 'mailto:' + data && !isLoading && data.data.email}
+        className='footer__mail link'
+      >
+        {data && !isLoading && data.data.email}
       </Link>
       <div className='footer__row'>
         <div className='footer__office'>
           <span>Офис продаж:</span>
-          <span>{data.data.address}</span>
-          <span>ПН-ПТ: 9:00 — 20:00, СБ: 10:00 — 18:00, ВС: выходной</span>
+          <span>{data && !isLoading && data.data.address}</span>
+          <span>{data && !isLoading && data.data.schedule}</span>
         </div>
-        <Link href={''} className='link'>
+        <Link href={'#'} className='link'>
           <Image src='images/document.svg' width={50} height={50} alt='viber' />
           Список разрешительной документации — ДОМ.РФ
         </Link>
       </div>
       <div className='footer__socials'>
-        <Link href={'#viber'}>
+        <Link href={'' && data && !isLoading && data.data.links.viber}>
           <Image src='images/viber.svg' width={40} height={40} alt='viber' />
         </Link>
-        <Link href={'#vk'}>
+        <Link href={'' && data && !isLoading && data.data.links.vk}>
           <Image src='images/vk.svg' width={40} height={40} alt='vk' />
         </Link>
-        <Link href={'#telegram'}>
+        <Link href={'' && data && !isLoading && data.data.links.tg}>
           <Image
             src='images/telegram.svg'
             width={40}
@@ -51,7 +54,7 @@ const Footer = async () => {
             alt='telegram'
           />
         </Link>
-        <Link href={'#whatsapp'}>
+        <Link href={'' && data && !isLoading && data.data.links.wa}>
           <Image
             src='images/whatsapp.svg'
             width={40}
