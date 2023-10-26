@@ -17,6 +17,10 @@
     display: block;
   }
 
+  &__close {
+    cursor: pointer;
+  }
+
   &__wrapper {
     min-height: 100%;
     padding: 34px 70px 70px 70px;

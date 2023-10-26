@@ -5,10 +5,10 @@ export const metadata = {
   description: 'Жилой комплекс бизнес-класса от ГК «Первый Трест»',
 };
 
-const Privacy = () => {
+const Policy = () => {
   return (
     <>
-      <section className='privacy'>
+      <section className='policy'>
         <div className='container'>
           <h1>Политика в отношении обработки персональных данных</h1>
           <ol>
@@ -53,7 +53,7 @@ const Privacy = () => {
             <Link href={'https://wptt.ru'} className='link'>
               Разработка — вебпространство
             </Link>
-            <Link href={'/privacy'} className='link'>
+            <Link href={'/policy'} className='link'>
               Политика конфиденциальности
             </Link>
           </div>
@@ -63,4 +63,4 @@ const Privacy = () => {
   );
 };
 
-export default Privacy;
+export default Policy;

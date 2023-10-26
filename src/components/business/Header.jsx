@@ -93,6 +93,7 @@ const Header = ({ color }) => {
         <div className={isMenuOpen ? 'menu menu_active' : 'menu'}>
           <div className='menu__wrapper'>
             <Image
+              className='menu__close'
               src='images/close-modal.svg'
               width={24}
               height={24}
