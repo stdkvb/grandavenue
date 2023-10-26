@@ -2,16 +2,32 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'GrandAvenue | Политика конфиденциальности',
-  description: 'Жилой комплекс бизнес-класса от ГК «Первый Трест»',
 };
 
-const Policy = () => {
+//get data
+async function getData() {
+  const res = await fetch('https://grandavenue.ru/api/policy', {
+    next: { revalidate: 10 },
+  });
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
+}
+
+const Policy = async () => {
+  const data = await getData();
+  // console.log(data);
+
   return (
     <>
       <section className='policy'>
         <div className='container'>
-          <h1>Политика в отношении обработки персональных данных</h1>
-          <ol>
+          <h1>{data.data.name}</h1>
+          <div className='policy__content'>{data.data.content}</div>
+          {/* <ol>
             <li>
               <h4>Общие положения</h4>
               <p>
@@ -46,7 +62,7 @@ const Policy = () => {
                 Оператор).
               </p>
             </li>
-          </ol>
+          </ol> */}
 
           <div className='footer__bottom'>
             <span>© 2023. Все права защищены.</span>

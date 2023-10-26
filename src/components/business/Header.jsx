@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import useSWR from 'swr';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useUrl } from 'nextjs-current-url';
 import Form from './Form';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -15,6 +16,9 @@ const Header = ({ color }) => {
     fetcher
   );
   // console.log(data)
+
+  //get url
+  const { href: currentUrl, pathname } = useUrl() ?? {};
 
   //menu control
   const [isMenuOpen, setIsMenuOpen] = useState(false);

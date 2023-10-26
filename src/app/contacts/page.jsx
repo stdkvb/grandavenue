@@ -3,16 +3,9 @@
 import Form from '@/src/components/business/Form';
 import Footer from '@/src/components/business/Footer';
 import { useTitle } from '@/src/hooks';
-// import { useEffect } from 'react';
 
 const Contacts = () => {
   useTitle('GrandAvenue | Контакты');
-
-  // useEffect(() => {
-  //   const url = window.location.href;
-
-  //   console.log({ url });
-  // }, []);
 
   return (
     <section className='contacts'>

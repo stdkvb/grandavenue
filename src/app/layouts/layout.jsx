@@ -6,7 +6,7 @@ import '../globals.scss';
 export default function RootLayout({ children }) {
   return (
     <html lang='ru'>
-      <body className='bg-gray'>
+      <body>
         <Header color={'header_gray'} />
         <main>{children}</main>
       </body>

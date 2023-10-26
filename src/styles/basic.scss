@@ -14,10 +14,6 @@ body {
   height: 100%;
   touch-action: pan-x pan-y;
 
-  &.bg-gray {
-    background-color: $gray90;
-  }
-
   @include mobile {
     font-size: 14px;
   }
