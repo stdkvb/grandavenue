@@ -4,7 +4,8 @@ import Modal from 'react-modal';
 import useSWR from 'swr';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useUrl } from 'nextjs-current-url';
+// import { useUrl } from 'nextjs-current-url';
+import { usePathname } from 'next/navigation';
 import Form from './Form';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -18,7 +19,9 @@ const Header = ({ color }) => {
   // console.log(data)
 
   //get url
-  const { href: currentUrl, pathname } = useUrl() ?? {};
+  // const { href: currentUrl, pathname } = useUrl() ?? {};
+  const path = usePathname();
+  console.log(path);
 
   //menu control
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,7 +59,15 @@ const Header = ({ color }) => {
 
   return (
     <>
-      <header className={'header container ' + color}>
+      {/* <header className={'header container ' + color}> */}
+      <header
+        className={
+          'header container ' +
+          ((path === '/layouts' && 'header_gray') ||
+            (path === '/contacts' && 'header_gray') ||
+            (path === '/policy' && 'header_gray'))
+        }
+      >
         <div className='header__column'>
           <Image
             className='header__burger'
