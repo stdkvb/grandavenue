@@ -1,4 +1,5 @@
 .location {
+  touch-action: none;
   h1 {
     max-width: 584px;
     position: absolute;
@@ -89,6 +90,7 @@
     top: 0;
     left: 0;
     display: block;
+    touch-action: pan-x;
 
     @include min_tablet_small {
       display: none;

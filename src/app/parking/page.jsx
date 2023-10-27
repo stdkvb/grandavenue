@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import PageWrapper from '@/src/components/business/PageWrapper';
+import PageWrapper from '@/src/components/PageWrapper';
 
 export const metadata = {
   title: 'GrandAvenue | Паркинг',

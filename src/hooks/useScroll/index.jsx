@@ -13,8 +13,8 @@ export const useScroll = () => {
   });
 
   const handleScroll = (event) => {
-    console.log('scroll event', event.deltaY);
-    console.log(path);
+    // console.log('scroll event', event.deltaY);
+    // console.log(path);
 
     if (path == '/') {
       if (event.deltaY > 10) {

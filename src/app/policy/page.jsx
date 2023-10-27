@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import PageWrapper from '@/src/components/business/PageWrapper';
+import PageWrapper from '@/src/components/PageWrapper';
 
 export const metadata = {
   title: 'GrandAvenue | Политика конфиденциальности',

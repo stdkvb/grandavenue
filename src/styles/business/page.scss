@@ -2,9 +2,9 @@
   width: 100vw;
   height: 100vh;
 
-  @include mobile {
-    height: calc(100vh - 80px);
-  }
+  // @include mobile {
+  //   height: calc(100vh - 80px);
+  // }
 
   &__background {
     width: 100%;

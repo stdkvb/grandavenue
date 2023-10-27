@@ -1,9 +1,9 @@
 'use client';
 
-import Form from '@/src/components/business/Form';
-import Footer from '@/src/components/business/Footer';
+import Form from '@/src/components/Form';
+import Footer from '@/src/components/Footer';
 import { useTitle } from '@/src/hooks';
-import PageWrapper from '@/src/components/business/PageWrapper';
+import PageWrapper from '@/src/components/PageWrapper';
 
 const Contacts = () => {
   useTitle('GrandAvenue | Контакты');

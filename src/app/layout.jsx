@@ -1,5 +1,5 @@
-import { Header } from '../components/business/Header';
-import { CookieConsent } from '../components/business/CookieConsent';
+import { Header } from '../components/Header';
+import { CookieConsent } from '../components/CookieConsent';
 
 import './globals.scss';
 

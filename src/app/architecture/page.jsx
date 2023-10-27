@@ -7,7 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import useSWR from 'swr';
 import { useTitle } from '@/src/hooks';
-import PageWrapper from '@/src/components/business/PageWrapper';
+import PageWrapper from '@/src/components/PageWrapper';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -23,7 +23,7 @@ const Architecture = () => {
 
   return (
     <PageWrapper>
-      <section className='page swiper'>
+      <section className='page swiper-page'>
         <Swiper
           className='page__swiper'
           modules={[Navigation, Scrollbar]}

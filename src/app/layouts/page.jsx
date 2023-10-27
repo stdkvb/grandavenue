@@ -6,7 +6,7 @@ import Image from 'next/image';
 import useSWR from 'swr';
 import { useTitle } from '@/src/hooks';
 import Modal from 'react-modal';
-import PageWrapper from '@/src/components/business/PageWrapper';
+import PageWrapper from '@/src/components/PageWrapper';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 

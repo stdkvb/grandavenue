@@ -10,7 +10,7 @@ import 'swiper/css/thumbs';
 import { useTitle } from '@/src/hooks';
 import useSWR from 'swr';
 import Modal from 'react-modal';
-import PageWrapper from '@/src/components/business/PageWrapper';
+import PageWrapper from '@/src/components/PageWrapper';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
