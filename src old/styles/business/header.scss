@@ -1,0 +1,88 @@
+.header {
+  background-color: transparent;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: calc(100% - 140px);
+  z-index: 2;
+
+  @include tablet {
+    width: calc(100% - 60px);
+  }
+
+  @include mobile {
+    padding: 13px 0;
+    width: calc(100% - 30px);
+  }
+
+  &_gray {
+    background-color: $gray90;
+  }
+
+  &__column {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+
+    &:first-of-type {
+      gap: 60px;
+    }
+  }
+
+  &__burger {
+    cursor: pointer;
+  }
+
+  &__discount {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    cursor: pointer;
+
+    @include tablet_small {
+      display: none;
+    }
+
+    span {
+      @include InterMedium;
+      text-transform: uppercase;
+      display: block;
+      max-width: 135px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: flex-start;
+    gap: 17px;
+
+    @include mobile {
+      z-index: 2;
+      img:last-of-type {
+        display: none;
+      }
+    }
+  }
+
+  &__phone-icon {
+    z-index: 2;
+    @include min_tablet_small {
+      display: none;
+    }
+  }
+
+  &__phone {
+    @include tablet_small {
+      display: none;
+    }
+  }
+
+  &__button {
+    @include desktop_small {
+      display: none;
+    }
+  }
+}

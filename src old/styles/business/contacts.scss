@@ -1,0 +1,45 @@
+.contacts {
+  height: 100%;
+  background-color: $gray90;
+
+  .container {
+    height: 100%;
+    padding-top: 200px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 47px;
+
+    @include tablet {
+      gap: 32px;
+      padding-top: 92px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    gap: 44px;
+
+    @include desktop {
+      flex-direction: column;
+    }
+
+    @include mobile {
+      gap: 16px;
+    }
+  }
+
+  &__text {
+    display: flex;
+
+    @include min_desktop {
+      width: 50%;
+      justify-content: flex-end;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 465px;
+      color: $gray30;
+    }
+  }
+}

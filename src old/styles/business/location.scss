@@ -1,0 +1,132 @@
+.location {
+  h1 {
+    max-width: 584px;
+    position: absolute;
+    top: 200px;
+    left: 70px;
+
+    @include tablet {
+      left: 30px;
+      max-width: 400px;
+    }
+
+    @include mobile {
+      max-width: 300px;
+      left: 15px;
+    }
+  }
+
+  p {
+    align-self: flex-end;
+    @include HeliosRegular;
+    text-align: right;
+    max-width: 487px;
+    font-size: 24px;
+    position: absolute;
+    bottom: 100px;
+    right: 142px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    @include tablet {
+      right: 30px;
+      bottom: 50px;
+      font-size: 20px;
+    }
+
+    @include mobile {
+      max-width: 290px;
+      bottom: 24px;
+      right: 15px;
+      font-size: 16px;
+      -webkit-line-clamp: 4;
+    }
+  }
+
+  &__wrapper {
+    @include tablet_small {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+    }
+  }
+
+  &__map {
+    @include tablet_small {
+      position: relative;
+      display: flex;
+      height: 100%;
+      width: -moz-fit-content;
+      width: fit-content;
+    }
+  }
+
+  &__background {
+    overflow: hidden;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    @include tablet_small {
+      display: none;
+    }
+  }
+
+  &__background-mobile {
+    position: relative;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+
+    @include min_tablet_small {
+      display: none;
+    }
+  }
+
+  &__base {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 54px;
+    height: 72px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    left: 38%;
+    top: 36%;
+
+    @include tablet_small {
+      width: 36px;
+      height: 50px;
+      top: 47%;
+    }
+  }
+
+  &__point {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 42px;
+    height: 56px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+
+    @include tablet_small {
+      width: 24px;
+      height: 34px;
+      // top: 43%;
+    }
+  }
+}

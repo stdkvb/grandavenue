@@ -1490,7 +1490,7 @@
   "resolved" "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   "version" "1.4.0"
 
-"next@^13.4.7", "next@^13.5.6":
+"next@^13.5.6":
   "integrity" "sha512-Y2wTcTbO4WwEsVb4A8VSnOsG1I9ok+h74q0ZdxkwM3EODqrs4pasq7O0iUxbcS9VtWMicG7f3+HAj0r1+NtKSw=="
   "resolved" "https://registry.npmjs.org/next/-/next-13.5.6.tgz"
   "version" "13.5.6"
@@ -1512,14 +1512,6 @@
     "@next/swc-win32-arm64-msvc" "13.5.6"
     "@next/swc-win32-ia32-msvc" "13.5.6"
     "@next/swc-win32-x64-msvc" "13.5.6"
-
-"nextjs-current-url@^1.0.3":
-  "integrity" "sha512-p7fVw+QdOCxxskIe5xFA3hpQ7GD7f4kV5H6VyAS7QFttErwVWDjOn5k61FjYP9r6ahbbDJriF7hGDqx53GBWAg=="
-  "resolved" "https://registry.npmjs.org/nextjs-current-url/-/nextjs-current-url-1.0.3.tgz"
-  "version" "1.0.3"
-  dependencies:
-    "next" "^13.4.7"
-    "react" "^18.2.0"
 
 "normalize-path@^3.0.0", "normalize-path@~3.0.0":
   "integrity" "sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA=="

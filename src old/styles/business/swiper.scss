@@ -1,0 +1,164 @@
+.swiper {
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 200px;
+    padding-bottom: 100px;
+
+    @include tablet {
+      padding-bottom: 50px;
+    }
+
+    @include mobile {
+      padding-top: 92px;
+      padding-bottom: 34px;
+    }
+  }
+
+  h1 {
+    max-width: 900px;
+  }
+
+  p {
+    @include HeliosRegular;
+    font-size: 24px;
+    max-width: 450px;
+    align-self: flex-end;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    @include tablet {
+      font-size: 20px;
+    }
+
+    @include mobile {
+      font-size: 16px;
+      max-width: 290px;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: 350px !important;
+
+    @include tablet {
+      top: 330px !important;
+    }
+
+    @include mobile {
+      top: 190px !important;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-rtl .swiper-button-next {
+    left: auto !important;
+    right: 170px !important;
+
+    @include tablet {
+      right: 120px !important;
+    }
+
+    @include mobile {
+      right: 80px !important;
+    }
+  }
+
+  .swiper-button-next,
+  .swiper-rtl .swiper-button-prev {
+    right: 84px !important;
+
+    @include tablet {
+      right: 43px !important;
+    }
+
+    @include mobile {
+      right: 22px !important;
+    }
+  }
+
+  .swiper-horizontal > .swiper-scrollbar,
+  .swiper-scrollbar.swiper-scrollbar-horizontal {
+    left: auto !important;
+    top: 300px !important;
+    width: 360px !important;
+    right: 70px !important;
+    height: 1px !important;
+    background-color: $gray40 !important;
+
+    @include tablet {
+      top: 280px !important;
+      right: 30px !important;
+    }
+
+    @include mobile {
+      width: 180px !important;
+      top: 155px !important;
+      right: 15px !important;
+    }
+
+    &::before {
+      content: '.';
+      font-size: 42px;
+      position: absolute;
+      left: -5px;
+      line-height: 0px;
+      top: -11.7px;
+    }
+
+    &::after {
+      content: '.';
+      font-size: 42px;
+      position: absolute;
+      right: -5px;
+      line-height: 0px;
+      top: -11.7px;
+    }
+  }
+
+  .swiper-scrollbar-drag {
+    background-color: $white !important;
+  }
+
+  &_wide {
+    p {
+      max-width: 620px;
+      -webkit-line-clamp: 4;
+      height: 116px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      top: 380px !important;
+
+      @include tablet {
+        top: 370px !important;
+      }
+
+      @include mobile {
+        top: 250px !important;
+      }
+    }
+
+    .swiper-horizontal > .swiper-scrollbar,
+    .swiper-scrollbar.swiper-scrollbar-horizontal {
+      top: 330px !important;
+
+      @include tablet {
+        top: 325px !important;
+      }
+
+      @include mobile {
+        top: 215px !important;
+      }
+    }
+  }
+}
