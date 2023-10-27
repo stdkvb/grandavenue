@@ -11,6 +11,4 @@ export const useBlockTransition = () => {
   useEffect(() => {
     document.title = paths.get(url)
   }, [])
-  
-
 }

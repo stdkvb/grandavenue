@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import PageWrapper from '@/src/components/business/PageWrapper';
 
 export const metadata = {
   title: 'GrandAvenue | О проекте',
@@ -21,17 +22,19 @@ const Project = async () => {
   // console.log(data);
 
   return (
-    <section className='page project'>
-      <Image
-        fill={true}
-        className='page__background'
-        src={'https://grandavenue.ru' + data.data.fileUrl}
-        alt='photo'
-      />
-      <div className='container'>
-        <h1>{data.data.content}</h1>
-      </div>
-    </section>
+    <PageWrapper>
+      <section className='page project'>
+        <Image
+          fill={true}
+          className='page__background'
+          src={'https://grandavenue.ru' + data.data.fileUrl}
+          alt='photo'
+        />
+        <div className='container'>
+          <h1>{data.data.content}</h1>
+        </div>
+      </section>
+    </PageWrapper>
   );
 };
 

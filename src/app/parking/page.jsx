@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import PageWrapper from '@/src/components/business/PageWrapper';
 
 export const metadata = {
   title: 'GrandAvenue | Паркинг',
@@ -22,9 +23,9 @@ const Parking = async () => {
   // console.log(data);
 
   return (
-    <>
+    <PageWrapper>
       {data.data.map((item) => (
-        <section className='page welcome'>
+        <section className='page welcome' key={item.id}>
           <Image
             fill={true}
             className='page__background'
@@ -33,13 +34,13 @@ const Parking = async () => {
           />
           <div className='container'>
             <h1>{item.title}</h1>
-            <Link href={'' && item.btnLink} className='button'>
+            <Link href={`${item.btnLink}`} className='button'>
               Выбрать место
             </Link>
           </div>
         </section>
       ))}
-    </>
+    </PageWrapper>
   );
 };
 
