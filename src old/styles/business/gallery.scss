@@ -41,11 +41,11 @@
     cursor: pointer;
 
     &::after {
-      content: url(../../../public/images/close.svg);
+      content: url(/images/close.svg);
     }
 
     &:hover::after {
-      content: url(../../../public/images/close_hover.svg);
+      content: url(/images/close_hover.svg);
     }
 
     @include mobile {
@@ -54,7 +54,7 @@
       right: 0;
       margin: 0 auto;
       &::after {
-        content: url(../../../public/images/close_small.svg);
+        content: url(/images/close_small.svg);
       }
     }
   }
