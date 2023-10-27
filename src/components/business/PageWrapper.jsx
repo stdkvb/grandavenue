@@ -1,17 +1,15 @@
 'use client';
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-// import { useRouter } from 'next/navigation';
-import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 const PageWrapper = ({ children }) => {
-  // const router = useRouter();
-  const path = usePathname();
-  console.log(path);
+  const router = useRouter();
+  console.log(router.pathname);
 
   return (
     <AnimatePresence wait={true}>
-      <motion.div key={path}>
+      <motion.div key={router.pathname}>
         <motion.div
           className='slide-in'
           initial={{ scaleY: 0 }}
