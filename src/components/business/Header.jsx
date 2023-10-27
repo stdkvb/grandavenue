@@ -15,7 +15,7 @@ const Header = ({ color }) => {
     'https://grandavenue.ru/api/header',
     fetcher
   );
-  // console.log(data)
+  // console.log(data);
 
   //get url
   const path = usePathname();
@@ -52,6 +52,7 @@ const Header = ({ color }) => {
       transform: 'translate(-50%, -50%)',
       padding: '0',
       borderRadius: '0',
+      width: '90%',
     },
   };
 
@@ -89,11 +90,17 @@ const Header = ({ color }) => {
           />
         </Link>
         <div className='header__column'>
-          <Link href={'tel:+73211232123'} className='header__phone-icon'>
+          <Link
+            href={`${data && !isLoading && 'tel:' + data.data.phone}`}
+            className='header__phone-icon'
+          >
             <Image src='images/phone.svg' width={24} height={24} alt='phone' />
           </Link>
-          <Link href={'tel:+73211232123'} className='header__phone link'>
-            +7 321 123 21 23
+          <Link
+            href={`${data && !isLoading && 'tel:' + data.data.phone}`}
+            className='header__phone link'
+          >
+            {data && !isLoading && data.data.phone}
           </Link>
           <Link
             href={'/layouts'}
@@ -140,11 +147,14 @@ const Header = ({ color }) => {
               <span>{data && !isLoading && data.data.office}</span>
               <span>{data && !isLoading && data.data.schedule}</span>
             </div>
-            <Link href={'tel:+73472017063'} className='menu__phone link'>
-              +7 (347) 201-70-63
+            <Link
+              href={`${data && !isLoading && 'tel:' + data.data.phone}`}
+              className='menu__phone link'
+            >
+              {data && !isLoading && data.data.phone}
             </Link>
             <div className='menu__socials'>
-              <Link href={'' && data && !isLoading && data.data.link.viber}>
+              <Link href={`${data && !isLoading && data.data.links.viber}`}>
                 <Image
                   src='images/viber.svg'
                   width={40}
@@ -152,10 +162,10 @@ const Header = ({ color }) => {
                   alt='viber'
                 />
               </Link>
-              <Link href={'' && data && !isLoading && data.data.link.vk}>
+              <Link href={`${data && !isLoading && data.data.links.vk}`}>
                 <Image src='images/vk.svg' width={40} height={40} alt='vk' />
               </Link>
-              <Link href={'' && data && !isLoading && data.data.link.tg}>
+              <Link href={`${data && !isLoading && data.data.links.tg}`}>
                 <Image
                   src='images/telegram.svg'
                   width={40}
@@ -163,7 +173,7 @@ const Header = ({ color }) => {
                   alt='telegram'
                 />
               </Link>
-              <Link href={'' && data && !isLoading && data.data.link.wa}>
+              <Link href={`${data && !isLoading && data.data.links.wa}`}>
                 <Image
                   src='images/whatsapp.svg'
                   width={40}

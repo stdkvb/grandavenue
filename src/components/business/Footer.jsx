@@ -17,13 +17,13 @@ const Footer = () => {
   return (
     <footer className='footer'>
       <Link
-        href={'' && 'tel:' + data && !isLoading && data.data.phone}
+        href={`${data && !isLoading && 'tel:' + data.data.phone}`}
         className='footer__phone link'
       >
         {data && !isLoading && data.data.phone}
       </Link>
       <Link
-        href={'' && 'mailto:' + data && !isLoading && data.data.email}
+        href={`${data && !isLoading && 'mailto:' + data.data.email}`}
         className='footer__mail link'
       >
         {data && !isLoading && data.data.email}
@@ -40,13 +40,13 @@ const Footer = () => {
         </Link>
       </div>
       <div className='footer__socials'>
-        <Link href={'' && data && !isLoading && data.data.links.viber}>
+        <Link href={`${data && !isLoading && data.data.links.viber}`}>
           <Image src='images/viber.svg' width={40} height={40} alt='viber' />
         </Link>
-        <Link href={'' && data && !isLoading && data.data.links.vk}>
+        <Link href={`${data && !isLoading && data.data.links.vk}`}>
           <Image src='images/vk.svg' width={40} height={40} alt='vk' />
         </Link>
-        <Link href={'' && data && !isLoading && data.data.links.tg}>
+        <Link href={`${data && !isLoading && data.data.links.tg}`}>
           <Image
             src='images/telegram.svg'
             width={40}
@@ -54,7 +54,7 @@ const Footer = () => {
             alt='telegram'
           />
         </Link>
-        <Link href={'' && data && !isLoading && data.data.links.wa}>
+        <Link href={`${data && !isLoading && data.data.links.wa}`}>
           <Image
             src='images/whatsapp.svg'
             width={40}

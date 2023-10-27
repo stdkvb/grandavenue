@@ -10,19 +10,19 @@ const PageWrapper = ({ children }) => {
   return (
     <AnimatePresence wait={true}>
       <motion.div key={router.pathname}>
-        <motion.div
+        {/* <motion.div
           className='slide-in'
           initial={{ scaleY: 0 }}
           animate={{ scaleY: 0 }}
           exit={{ scaleY: 1 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        ></motion.div>
+        ></motion.div> */}
         <motion.div
           className='slide-out'
-          initial={{ scaleY: 1 }}
-          animate={{ scaleY: 0 }}
+          initial={{ y: 0 }}
+          animate={{ y: '-100vh' }}
           exit={{ scaleY: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
         ></motion.div>
         {children}
       </motion.div>

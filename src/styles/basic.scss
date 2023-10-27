@@ -129,7 +129,13 @@ a {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: #0f0f0f;
+  background-image: url('/images/transition.png');
   transform-origin: top;
   z-index: 6;
+  background-size: 100%;
+
+  @include tablet_small {
+    background-image: url('/images/transition-mobile.png');
+    background-size: 100%;
+  }
 }
