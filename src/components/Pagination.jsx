@@ -14,7 +14,10 @@ const pages = [
 
 const Pagination = ({ currentPath }) => {
   return (
-    <div className='pagination'>
+    <div
+      className='pagination'
+      style={currentPath == '/contacts' ? { bottom: 170 } : {}}
+    >
       {currentPath == '/' ? (
         <Image
           src='images/pagination.svg'
@@ -31,7 +34,7 @@ const Pagination = ({ currentPath }) => {
 
       {pages.map((page) =>
         currentPath == page.href ? (
-          <div className='pagination__active'>
+          <div className='pagination__active' key={page.id}>
             <span>{page.title}</span>
             <Image
               src='images/pagination-active.svg'
@@ -41,7 +44,7 @@ const Pagination = ({ currentPath }) => {
             />
           </div>
         ) : (
-          <Link href={page.href}>
+          <Link href={page.href} key={page.id}>
             <Image
               src='images/pagination.svg'
               width={4}

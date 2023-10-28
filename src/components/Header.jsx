@@ -54,7 +54,6 @@ const Header = ({ color }) => {
       transform: 'translate(-50%, -50%)',
       padding: '0',
       borderRadius: '0',
-      width: '90%',
     },
   };
 

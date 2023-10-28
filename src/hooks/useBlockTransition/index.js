@@ -8,7 +8,7 @@ export const useBlockTransition = () => {
   const [url, setUrl] = useState(window.location.pathname)
   const [currentIndex, setCurrentIndex] = useState(paths.findIndex(url))
 
-  useEffect(() => {
+  useEffect((url) => {
     document.title = paths.get(url)
   }, [])
 }

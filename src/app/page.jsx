@@ -29,7 +29,7 @@ const Home = async () => {
           className='page__background'
           src={'https://grandavenue.ru' + data.data.fileUrl}
           fill={true}
-          alt='photo'
+          alt='background photo'
         />
         <div className='container'>
           <h1>{data.data.title}</h1>
