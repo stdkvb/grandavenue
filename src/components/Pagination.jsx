@@ -16,7 +16,7 @@ const Pagination = ({ currentPath }) => {
   return (
     <div
       className='pagination'
-      style={currentPath == '/contacts' ? { bottom: 170 } : {}}
+      style={currentPath == '/contacts' ? { bottom: 140 } : {}}
     >
       {currentPath == '/' ? (
         <Image
