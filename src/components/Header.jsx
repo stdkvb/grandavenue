@@ -5,6 +5,8 @@ import useSWR from 'swr';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { AnimatePresence, motion } from 'framer-motion';
+
 import Form from './Form';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -112,78 +114,93 @@ const Header = ({ color }) => {
             Выбрать квартиру
           </Link>
         </div>
-        <div className={isMenuOpen ? 'menu menu_active' : 'menu'}>
-          <div className='menu__wrapper'>
-            <Image
-              className='menu__close'
-              src='images/close-modal.svg'
-              width={24}
-              height={24}
-              alt='close'
-              onClick={closeMenu}
-            />
-            <nav className='menu__nav'>
-              {data &&
-                !isLoading &&
-                data.data.menu.map((item) => (
-                  <Link
-                    key={item.id}
-                    href={item.anchor}
-                    className='link'
-                    onClick={closeMenu}
-                  >
-                    {item.title}
+        <AnimatePresence mode='wait' initial={false}>
+          {isMenuOpen && (
+            <motion.div
+              className='menu'
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className='menu__wrapper'>
+                <Image
+                  className='menu__close'
+                  src='images/close-modal.svg'
+                  width={24}
+                  height={24}
+                  alt='close'
+                  onClick={closeMenu}
+                />
+                <nav className='menu__nav'>
+                  {data &&
+                    !isLoading &&
+                    data.data.menu.map((item) => (
+                      <Link
+                        key={item.id}
+                        href={item.anchor}
+                        className='link'
+                        onClick={closeMenu}
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                </nav>
+                <span
+                  className='menu__callback button button_secondary'
+                  onClick={() => setIsOpen(true)}
+                >
+                  Заказать звонок
+                </span>
+                <div className='menu__office'>
+                  <span>Офис продаж:</span>
+                  <span>{data && !isLoading && data.data.office}</span>
+                  <span>{data && !isLoading && data.data.schedule}</span>
+                </div>
+                <Link
+                  href={`${data && !isLoading && 'tel:' + data.data.phone}`}
+                  className='menu__phone link'
+                >
+                  {data && !isLoading && data.data.phone}
+                </Link>
+                <div className='menu__socials'>
+                  <Link href={`${data && !isLoading && data.data.links.viber}`}>
+                    <Image
+                      src='images/viber.svg'
+                      width={40}
+                      height={40}
+                      alt='viber'
+                    />
                   </Link>
-                ))}
-            </nav>
-            <span
-              className='menu__callback button button_secondary'
-              onClick={() => setIsOpen(true)}
-            >
-              Заказать звонок
-            </span>
-            <div className='menu__office'>
-              <span>Офис продаж:</span>
-              <span>{data && !isLoading && data.data.office}</span>
-              <span>{data && !isLoading && data.data.schedule}</span>
-            </div>
-            <Link
-              href={`${data && !isLoading && 'tel:' + data.data.phone}`}
-              className='menu__phone link'
-            >
-              {data && !isLoading && data.data.phone}
-            </Link>
-            <div className='menu__socials'>
-              <Link href={`${data && !isLoading && data.data.links.viber}`}>
-                <Image
-                  src='images/viber.svg'
-                  width={40}
-                  height={40}
-                  alt='viber'
-                />
-              </Link>
-              <Link href={`${data && !isLoading && data.data.links.vk}`}>
-                <Image src='images/vk.svg' width={40} height={40} alt='vk' />
-              </Link>
-              <Link href={`${data && !isLoading && data.data.links.tg}`}>
-                <Image
-                  src='images/telegram.svg'
-                  width={40}
-                  height={40}
-                  alt='telegram'
-                />
-              </Link>
-              <Link href={`${data && !isLoading && data.data.links.wa}`}>
-                <Image
-                  src='images/whatsapp.svg'
-                  width={40}
-                  height={40}
-                  alt='whatsapp'
-                />
-              </Link>
-            </div>
-          </div>
-        </div>
+                  <Link href={`${data && !isLoading && data.data.links.vk}`}>
+                    <Image
+                      src='images/vk.svg'
+                      width={40}
+                      height={40}
+                      alt='vk'
+                    />
+                  </Link>
+                  <Link href={`${data && !isLoading && data.data.links.tg}`}>
+                    <Image
+                      src='images/telegram.svg'
+                      width={40}
+                      height={40}
+                      alt='telegram'
+                    />
+                  </Link>
+                  <Link href={`${data && !isLoading && data.data.links.wa}`}>
+                    <Image
+                      src='images/whatsapp.svg'
+                      width={40}
+                      height={40}
+                      alt='whatsapp'
+                    />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
       <Modal
         isOpen={isOpen}

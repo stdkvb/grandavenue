@@ -142,11 +142,7 @@ const Location = () => {
               {currentPoint &&
                 currentPoint.images.map((image) => (
                   <SwiperSlide key={image.id}>
-                    <Image
-                      src={'https://grandavenue.ru' + image}
-                      fill={true}
-                      alt='photo'
-                    />
+                    <img src={'https://grandavenue.ru' + image} alt='photo' />
                   </SwiperSlide>
                 ))}
             </Swiper>

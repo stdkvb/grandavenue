@@ -73,6 +73,11 @@ a {
   color: $white;
   text-decoration: none;
   cursor: pointer;
+
+  &:focus {
+    outline: 0;
+    box-shadow: none;
+  }
 }
 
 .container {

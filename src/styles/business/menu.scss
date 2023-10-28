@@ -6,15 +6,10 @@
   max-width: 960px;
   background-color: $gray90;
   height: 100vh;
-  display: none;
   z-index: 1;
 
   @include mobile {
     width: 100%;
-  }
-
-  &_active {
-    display: block;
   }
 
   &__close {
