@@ -1,13 +1,14 @@
 .contacts {
   height: 100%;
   background-color: $gray90;
-
+  min-height: 100vh;
   .container {
     height: 100%;
     padding-top: 200px;
     display: grid;
     grid-template-columns: 1fr;
     gap: 47px;
+    min-height: 100vh;
 
     @include tablet {
       gap: 32px;

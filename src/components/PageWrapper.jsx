@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useScroll } from '@/src/hooks/useScroll';
 import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
+import Pagination from './Pagination';
 
 const PageWrapper = ({ children }) => {
   const router = useRouter();
@@ -120,6 +121,7 @@ const PageWrapper = ({ children }) => {
           transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
         ></motion.div>
         {children}
+        <Pagination currentPath={path} />
       </motion.div>
     </AnimatePresence>
   );
