@@ -6,6 +6,25 @@
   scroll-behavior: smooth;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $gray80 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $gray80;
+  border-radius: 20px;
+  border: none;
+}
+
 html,
 body {
   @include InterRegular;

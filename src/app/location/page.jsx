@@ -1,5 +1,6 @@
 'use client';
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
@@ -24,8 +25,13 @@ const Location = () => {
   );
   // console.log(data);
 
-  //images for gallery
+  //data for gallery
   const points = data && !isLoading && data.data.objects;
+
+  //scroll base point into view
+  useEffect(() => {
+    document.getElementById('base').scrollIntoView();
+  }, []);
 
   //modal control
   const [isOpen, setIsOpen] = useState(false);
@@ -91,6 +97,7 @@ const Location = () => {
             />
             <div
               className='location__base'
+              id='base'
               style={{
                 backgroundImage: `url("/images/base.svg")`,
               }}
