@@ -31,7 +31,7 @@ const Project = async () => {
           alt='photo'
         />
         <div className='container'>
-          <h1>{data.data.content}</h1>
+          <h1 dangerouslySetInnerHTML={{ __html: data.data.content }}></h1>
         </div>
       </section>
     </PageWrapper>

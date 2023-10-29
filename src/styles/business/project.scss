@@ -1,5 +1,7 @@
 .project {
   touch-action: none;
+  position: relative;
+
   .container {
     height: 100%;
     display: flex;

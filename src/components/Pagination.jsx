@@ -3,13 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const pages = [
-  { href: '/project', title: 'о проекте' },
-  { href: '/location', title: 'расположение' },
-  { href: '/architecture', title: 'архитектура' },
-  { href: '/infrastructure', title: 'инфраструктура' },
-  { href: '/layouts', title: 'планировки' },
-  { href: '/parking', title: 'паркинг' },
-  { href: '/contacts', title: 'контакты' },
+  { href: '/project', title: 'о проекте', id: '1' },
+  { href: '/location', title: 'расположение', id: '2' },
+  { href: '/architecture', title: 'архитектура', id: '3' },
+  { href: '/infrastructure', title: 'инфраструктура', id: '4' },
+  { href: '/layouts', title: 'планировки', id: '5' },
+  { href: '/parking', title: 'паркинг', id: '6' },
+  { href: '/contacts', title: 'контакты', id: '7' },
 ];
 
 const Pagination = ({ currentPath }) => {
