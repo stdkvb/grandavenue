@@ -17,7 +17,7 @@ const Header = ({ color }) => {
     'https://grandavenue.ru/api/header',
     fetcher
   );
-  console.log(data);
+  // console.log(data);
 
   //get url
   const path = usePathname();

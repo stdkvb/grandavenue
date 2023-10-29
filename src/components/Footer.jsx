@@ -34,7 +34,15 @@ const Footer = () => {
           <span>{data && !isLoading && data.data.address}</span>
           <span>{data && !isLoading && data.data.schedule}</span>
         </div>
-        <Link href={'#'} className='link'>
+        <Link
+          href={`${data && !isLoading && data.data.document.url}`}
+          className='link'
+          download={
+            (data && !isLoading && data.data.document.type) == 'file'
+              ? true
+              : false
+          }
+        >
           <Image src='images/document.svg' width={50} height={50} alt='viber' />
           Список разрешительной документации — ДОМ.РФ
         </Link>
