@@ -7,6 +7,7 @@ import useSWR from 'swr';
 import { useTitle } from '@/src/hooks';
 import Modal from 'react-modal';
 import PageWrapper from '@/src/components/PageWrapper';
+import Form from '@/src/components/Form';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -19,11 +20,12 @@ const Layouts = () => {
     fetcher
   );
 
-  // console.log(data);
+  console.log(data);
 
   //modal control
   const [isOpen, setIsOpen] = useState(false);
   const [currentLayout, setCurrentLayout] = useState(null);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   const customStyles = {
     overlay: {
@@ -154,28 +156,24 @@ const Layouts = () => {
                         <span className='layouts__subtitle'>Площадь:</span>
                         <span>{layout.area}</span>
                       </div>
-                      {/* extra properties of each layout */}
-                      {/* {layout.extraProperties.map((item) => (
-                          <div className='layouts__info-item' key={item.id}>
-                            <span className='layouts__subtitle'>
-                              {item.name}
-                            </span>
-                            <span>{item.value}</span>
-                          </div>
-                        ))} */}
                       <div className='layouts__info-item'>
                         <span className='layouts__subtitle'>Кв. № :</span>
-                        <span>55</span>
+                        <span>{layout.flatNumber}</span>
                       </div>
                       <div className='layouts__info-item'>
                         <span className='layouts__subtitle'>Этаж:</span>
-                        <span>5</span>
+                        <span>{layout.stage}</span>
                       </div>
                     </div>
                     <p>{layout.description}</p>
                   </div>
                   <div className='layouts__buttons'>
-                    <span className='button'>Узнать стоимость</span>
+                    <span
+                      className='button'
+                      onClick={() => setIsFormOpen(true)}
+                    >
+                      Узнать стоимость
+                    </span>
                     <Link
                       href={data && !isLoading && layout.link}
                       className='button button_secondary'
@@ -233,6 +231,25 @@ const Layouts = () => {
                 height={24}
                 alt='close'
                 onClick={onModalClose}
+              />
+            </div>
+          </Modal>
+          <Modal
+            isOpen={isFormOpen}
+            onRequestClose={() => setIsFormOpen(false)}
+            style={customStyles}
+            ariaHideApp={false}
+          >
+            <div className='modal'>
+              <h3>Узнать стоимость</h3>
+              <Form inModal={true} />
+              <Image
+                className='modal__close'
+                src={'/images/close-modal_black.svg'}
+                width={24}
+                height={24}
+                alt='close'
+                onClick={() => setIsFormOpen(false)}
               />
             </div>
           </Modal>
