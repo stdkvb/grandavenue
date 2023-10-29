@@ -23,17 +23,16 @@ const Form = ({ inModal }) => {
       }),
     }).then((res) => res.json());
 
-  const { data, error } = useSWR(
+  const { data, isLoading, error } = useSWR(
     'https://grandavenue.ru/api/auth/login',
-    getToken,
-    { suspense: true }
+    getToken
   );
-  const token = data.token;
+  const token = data && !isLoading && data.token;
 
   // console.log(token);
 
-  //modal control
-  const [isOpen, setIsOpen] = useState(false);
+  //success modal control
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
   const customStyles = {
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -75,7 +74,8 @@ const Form = ({ inModal }) => {
     setErrors(errors);
     setIsFormValid(Object.keys(errors).length === 0);
   };
-  // Submit
+
+  // form submit
   const handleSubmit = () => {
     if (isFormValid) {
       //fetch data
@@ -93,14 +93,14 @@ const Form = ({ inModal }) => {
         }
       );
 
-      console.log('Form submitted successfully!');
+      // console.log('Form submitted successfully!');
       setName('');
       setPhone('');
 
       //open succsess modal
-      setIsOpen(true);
+      setIsSuccessOpen(true);
     } else {
-      console.log('Form has errors. Please correct them.');
+      // console.log('Form has errors. Please correct them.');
     }
   };
 
@@ -150,7 +150,7 @@ const Form = ({ inModal }) => {
         </button>
       </div>
       <Modal
-        isOpen={isOpen}
+        isOpen={isSuccessOpen}
         onRequestClose={() => setIsOpen(false)}
         style={customStyles}
         ariaHideApp={false}
@@ -165,7 +165,7 @@ const Form = ({ inModal }) => {
           </span>
           <button
             className='modal__button button button_black'
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsSuccessOpen(false)}
           >
             отлично!
           </button>
@@ -175,7 +175,7 @@ const Form = ({ inModal }) => {
             width={24}
             height={24}
             alt='close'
-            onClick={() => setIsOpen(false)}
+            onClick={() => setIsSuccessOpen(false)}
           />
         </div>
       </Modal>

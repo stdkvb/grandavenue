@@ -11,8 +11,7 @@ const Footer = () => {
     'https://grandavenue.ru/api/contacts',
     fetcher
   );
-
-  console.log(data);
+  // console.log(data);
 
   return (
     <footer className='footer'>
