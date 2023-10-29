@@ -20,7 +20,7 @@ const Layouts = () => {
     fetcher
   );
 
-  console.log(data);
+  // console.log(data);
 
   //modal control
   const [isOpen, setIsOpen] = useState(false);

@@ -3,8 +3,35 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
+import useSWR from 'swr';
+import { usePathname } from 'next/navigation';
 
 const Form = ({ inModal }) => {
+  //get url
+  const path = usePathname();
+
+  //get token
+  const getToken = () =>
+    fetch('https://grandavenue.ru/api/auth/login', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        login: 'admin',
+        password: 'i~kf6T4U',
+      }),
+    }).then((res) => res.json());
+
+  const { data, error } = useSWR(
+    'https://grandavenue.ru/api/auth/login',
+    getToken,
+    { suspense: true }
+  );
+  const token = data.token;
+
+  // console.log(token);
+
   //modal control
   const [isOpen, setIsOpen] = useState(false);
   const customStyles = {
@@ -51,9 +78,25 @@ const Form = ({ inModal }) => {
   // Submit
   const handleSubmit = () => {
     if (isFormValid) {
+      //fetch data
+      fetch(
+        path == '/layouts'
+          ? 'https://grandavenue.ru/api/form/price'
+          : 'https://grandavenue.ru/api/form/question',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            authorization: 'Bearer ' + token,
+          },
+          body: JSON.stringify({ name, phone, token }),
+        }
+      );
+
       console.log('Form submitted successfully!');
       setName('');
       setPhone('');
+
       //open succsess modal
       setIsOpen(true);
     } else {
