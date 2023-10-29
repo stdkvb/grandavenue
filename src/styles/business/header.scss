@@ -55,13 +55,16 @@
   }
 
   &__logo {
-    display: flex;
-    align-items: flex-start;
-    gap: 17px;
+    z-index: 2;
 
-    @include mobile {
-      z-index: 2;
-      img:last-of-type {
+    img:nth-child(1) {
+      @include mobile {
+        display: none;
+      }
+    }
+
+    img:nth-child(2) {
+      @include min_mobile {
         display: none;
       }
     }

@@ -17,7 +17,7 @@ const Header = ({ color }) => {
     'https://grandavenue.ru/api/header',
     fetcher
   );
-  // console.log(data);
+  console.log(data);
 
   //get url
   const path = usePathname();
@@ -82,12 +82,21 @@ const Header = ({ color }) => {
           </div>
         </div>
         <Link href={'/'} className='header__logo'>
-          <Image src='images/logo.svg' width={53} height={44} alt='logo' />
-          <Image
-            src='images/logo-text.svg'
-            width={202}
-            height={19}
-            alt='logo-text'
+          <img
+            src={
+              data &&
+              !isLoading &&
+              'https://grandavenue.ru' + data.data.desktopLogoUrl
+            }
+            alt='logo'
+          />
+          <img
+            src={
+              data &&
+              !isLoading &&
+              'https://grandavenue.ru' + data.data.mobileLogoUrl
+            }
+            alt='logo'
           />
         </Link>
         <div className='header__column'>
