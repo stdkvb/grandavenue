@@ -15,6 +15,80 @@ import PageWrapper from '@/src/components/PageWrapper';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
+const points = [
+  {
+    id: 0,
+    title: 'Парк-50-летия',
+    icon: 'url("/images/park.svg")',
+    left: `51%`,
+    top: `31%`,
+  },
+  {
+    id: 1,
+    title: 'Яй',
+    icon: 'url("/images/playground.svg")',
+    left: `36%`,
+    top: `24%`,
+  },
+
+  {
+    id: 2,
+    title: 'Центральный',
+    icon: 'url("/images/playground.svg")',
+    left: `13%`,
+    top: `51%`,
+  },
+  {
+    id: 3,
+    title: 'Мир',
+    icon: 'url("/images/playground.svg")',
+    left: `75%`,
+    top: `21%`,
+  },
+  {
+    id: 4,
+    title: 'Уфа-Арена',
+    icon: 'url("/images/playground.svg")',
+    left: `11%`,
+    top: `35%`,
+  },
+  {
+    id: 5,
+    title: 'Парк-Якутова',
+    icon: 'url("/images/park.svg")',
+    left: `4%`,
+    top: `34%`,
+  },
+  {
+    id: 6,
+    title: 'Ласточка',
+    icon: 'url("/images/school.svg")',
+    left: `19%`,
+    top: `39%`,
+  },
+  {
+    id: 7,
+    title: 'Солнечный-круг',
+    icon: 'url("/images/school.svg")',
+    left: `27%`,
+    top: `45%`,
+  },
+  {
+    id: 8,
+    title: '№1',
+    icon: 'url("/images/school.svg")',
+    left: `59%`,
+    top: `53%`,
+  },
+  {
+    id: 9,
+    title: 'ТинькоффХолл',
+    icon: 'url("/images/playground.svg")',
+    left: `42%`,
+    top: `43%`,
+  },
+];
+
 const Location = () => {
   useTitle('GrandAvenue | Расположение');
 
@@ -26,7 +100,7 @@ const Location = () => {
   // console.log(data);
 
   //data for gallery
-  const points = data && !isLoading && data.data.objects;
+  const objects = data && !isLoading && data.data.objects;
 
   //scroll base point into view
   useEffect(() => {
@@ -102,24 +176,18 @@ const Location = () => {
                 backgroundImage: `url("/images/base.svg")`,
               }}
             ></div>
-            <div
-              onClick={() => onModalOpen(points[0])}
-              className='location__point'
-              style={{
-                backgroundImage: `url("/images/park.svg")`,
-                left: `51%`,
-                top: `31%`,
-              }}
-            ></div>
-            <div
-              onClick={() => onModalOpen(points[1])}
-              className='location__point'
-              style={{
-                backgroundImage: `url("/images/playground.svg")`,
-                left: `25%`,
-                top: `63%`,
-              }}
-            ></div>
+            {points.map((point) => (
+              <div
+                onClick={() => onModalOpen(objects[`${point.id}`])}
+                id={point.title}
+                className='location__point'
+                style={{
+                  backgroundImage: `${point.icon}`,
+                  left: `${point.left}`,
+                  top: `${point.top}`,
+                }}
+              ></div>
+            ))}
           </div>
         </div>
 

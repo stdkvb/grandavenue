@@ -55,7 +55,10 @@
   }
 
   &__logo {
-    z-index: 2;
+    z-index: 1;
+    @include mobile {
+      z-index: 2;
+    }
 
     img:nth-child(1) {
       @include mobile {

@@ -17,67 +17,67 @@ export const useScroll = () => {
     // console.log(path);
 
     if (path == '/') {
-      if (event.deltaY > 10) {
+      if (event.deltaY > 60) {
         router.push('/project');
       }
     }
 
     if (path == '/project') {
-      if (event.deltaY < -10) {
+      if (event.deltaY < -60) {
         router.push('/');
       }
 
-      if (event.deltaY > 10) {
+      if (event.deltaY > 60) {
         router.push('/location');
       }
     }
 
     if (path == '/location') {
-      if (event.deltaY < -10) {
+      if (event.deltaY < -60) {
         router.push('/project');
       }
 
-      if (event.deltaY > 10) {
+      if (event.deltaY > 60) {
         router.push('/infrastructure');
       }
     }
 
     if (path == '/infrastructure') {
-      if (event.deltaY < -10) {
+      if (event.deltaY < -60) {
         router.push('/location');
       }
 
-      if (event.deltaY > 10) {
+      if (event.deltaY > 60) {
         router.push('/architecture');
       }
     }
 
     if (path == '/architecture') {
-      if (event.deltaY < -10) {
+      if (event.deltaY < -60) {
         router.push('/infrastructure');
       }
 
-      if (event.deltaY > 10) {
+      if (event.deltaY > 60) {
         router.push('/layouts');
       }
     }
 
     if (path == '/layouts') {
-      if (event.deltaY < -10) {
+      if (event.deltaY < -60) {
         router.push('/architecture');
       }
 
-      if (event.deltaY > 60) {
+      if (event.deltaY > 80) {
         router.push('/parking');
       }
     }
 
     if (path == '/parking') {
-      if (event.deltaY < -10) {
+      if (event.deltaY < -60) {
         router.push('/layouts');
       }
 
-      if (event.deltaY > 10) {
+      if (event.deltaY > 60) {
         router.push('/contacts');
       }
     }

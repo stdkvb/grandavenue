@@ -106,7 +106,7 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    left: 38%;
+    left: 36.5%;
     top: 36%;
 
     @include tablet_small {
@@ -126,11 +126,57 @@
     background-repeat: no-repeat;
     background-size: cover;
     cursor: pointer;
+    z-index: 1;
 
     @include tablet_small {
       width: 24px;
       height: 34px;
-      // top: 43%;
+
+      &#Парк-50-летия {
+        top: 43% !important;
+      }
+
+      &#Яй {
+      }
+
+      &#Центральный {
+        left: 7% !important;
+        top: 64% !important;
+      }
+
+      &#Мир {
+        left: 83% !important;
+        top: 24% !important;
+      }
+
+      &#Уфа-Арена {
+        left: 5% !important;
+        top: 46% !important;
+      }
+
+      &#Парк-Якутова {
+        left: 2% !important;
+        top: 21% !important;
+      }
+
+      &#Ласточка {
+        left: 15% !important;
+        top: 52% !important;
+      }
+
+      &#Солнечный-круг {
+        left: 26% !important;
+        top: 55% !important;
+      }
+
+      &#№1 {
+        left: 58% !important;
+        top: 82% !important;
+      }
+
+      &#ТинькоффХолл {
+        top: 56% !important;
+      }
     }
   }
 }
