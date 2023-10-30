@@ -5,7 +5,6 @@ import { useScroll } from '@/src/hooks/useScroll';
 import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Pagination from './Pagination';
-import CustomCursor from './CustomCursor';
 
 const PageWrapper = ({ children }) => {
   const router = useRouter();
@@ -123,7 +122,6 @@ const PageWrapper = ({ children }) => {
         ></motion.div>
         {children}
         <Pagination currentPath={path} />
-        <CustomCursor />
       </motion.div>
     </AnimatePresence>
   );
