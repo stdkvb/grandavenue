@@ -45,6 +45,10 @@
     }
   }
 
+  .swiper-slide {
+    overflow: hidden;
+  }
+
   .swiper-button-prev,
   .swiper-button-next {
     top: 350px !important;

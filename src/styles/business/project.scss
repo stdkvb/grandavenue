@@ -1,6 +1,7 @@
 .project {
   touch-action: none;
   position: relative;
+  overflow: hidden;
 
   .container {
     height: 100%;
@@ -13,6 +14,10 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+
+      @include mobile {
+        gap: 0;
+      }
 
       span {
         @include HeliosRegular;
@@ -28,10 +33,16 @@
 
         &:nth-child(1) {
           align-self: center;
+          @include mobile {
+            align-self: flex-start;
+          }
         }
         &:nth-child(2) {
           align-self: flex-end;
           text-align: right;
+          @include mobile {
+            text-align: left;
+          }
         }
       }
     }

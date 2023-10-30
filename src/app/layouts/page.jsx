@@ -174,12 +174,12 @@ const Layouts = () => {
                     >
                       Узнать стоимость
                     </span>
-                    <Link
+                    {/* <Link
                       href={data && !isLoading && layout.link}
                       className='button button_secondary'
                     >
                       3D-тур
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </div>

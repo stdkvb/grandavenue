@@ -87,9 +87,9 @@ const Form = ({ inModal }) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            authorization: 'Bearer ' + token,
+            'Authorization': `Bearer ${token}`,
           },
-          body: JSON.stringify({ name, phone, token }),
+          body: JSON.stringify({ name, phone }),
         }
       );
 
@@ -132,7 +132,7 @@ const Form = ({ inModal }) => {
           </div>
         </div>
         <div className='form__privacy'>
-          <span>Отправляя форму вы соглашаетесь с </span>
+          <span>Отправляя форму, вы соглашаетесь с </span>
           <Link href={'/privacy'} className='link'>
             условиями обработки личных данных
           </Link>

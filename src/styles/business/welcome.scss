@@ -1,6 +1,7 @@
 .welcome {
   touch-action: none;
   position: relative;
+  overflow: hidden;
 
   .container {
     min-height: 100%;
