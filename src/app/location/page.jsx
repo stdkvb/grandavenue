@@ -178,6 +178,7 @@ const Location = () => {
             ></div>
             {points.map((point) => (
               <div
+                key={point.id}
                 onClick={() => onModalOpen(objects[`${point.id}`])}
                 id={point.title}
                 className='location__point'

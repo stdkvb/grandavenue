@@ -11,7 +11,7 @@
     gap: 20px;
     padding-right: 48px;
 
-    @include mobile {
+    @include tablet {
       flex-direction: column-reverse;
       gap: 10px;
       padding: 12px;
@@ -50,9 +50,14 @@
     position: absolute;
     right: 12px;
     top: 12px;
+    @include transition;
 
     @include mobile {
       align-self: flex-end;
+    }
+
+    &:hover {
+      scale: 1.1;
     }
   }
 

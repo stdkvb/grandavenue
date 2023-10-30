@@ -27,7 +27,11 @@ const Policy = async () => {
       <section className='policy'>
         <div className='container'>
           <h1>{data.data.name}</h1>
-          <div className='policy__content'>{data.data.content}</div>
+          <div
+            className='policy__content'
+            dangerouslySetInnerHTML={{ __html: data.data.content }}
+          ></div>
+
           {/* <ol>
             <li>
               <h4>Общие положения</h4>
@@ -64,7 +68,6 @@ const Policy = async () => {
               </p>
             </li>
           </ol> */}
-
           <div className='footer__bottom'>
             <span>© 2023. Все права защищены.</span>
             <Link href={'https://wptt.ru'} className='link'>

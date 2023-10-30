@@ -26,4 +26,14 @@
       font-size: 10px;
     }
   }
+
+  a {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: $gray90;
+
+    @include mobile {
+      font-size: 10px;
+    }
+  }
 }

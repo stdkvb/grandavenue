@@ -26,6 +26,16 @@
       flex-direction: column;
       gap: 20px;
     }
+  }
+
+  &__description {
+    width: 47%;
+    padding-left: 40px;
+
+    @include desktop {
+      width: unset;
+      padding: unset;
+    }
 
     p {
       @include HeliosRegular;
@@ -98,18 +108,22 @@
 
   &__column {
     width: 50%;
+    max-width: 870px;
     position: relative;
 
     @include tablet {
       width: unset;
+      max-width: unset;
     }
 
     &:first-child {
       border-right: solid 1px $white;
+      width: 55%;
 
       @include tablet {
         border-right: none;
         border-bottom: solid 1px $white;
+        width: unset;
       }
     }
 
@@ -125,11 +139,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 
     img:not(.layouts__zoom) {
+      max-height: 563px;
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
     }
   }
 
@@ -141,14 +157,20 @@
     left: 0;
     margin: auto;
     cursor: pointer;
+    @include transition;
+
+    &:hover {
+      scale: 1.05;
+    }
 
     @include mobile {
       margin: unset;
       right: 8px;
-      bottom: 8px;
+      bottom: 90px;
       top: unset;
       left: unset;
       width: 32px;
+      height: 32px;
     }
   }
 

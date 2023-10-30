@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { hasCookie, setCookie } from 'cookies-next';
+import Link from 'next/link';
 
 const CookieConsent = (props) => {
   const [showConsent, setShowConsent] = React.useState(true);
@@ -24,7 +25,10 @@ const CookieConsent = (props) => {
       <div className='cookie__wrapper'>
         <span>
           продолжая использовать наш сайт, вы даете согласие на обработку файлов
-          cookie и соглашаетесь с политикой обработки персональны данных
+          cookie и соглашаетесь с{' '}
+          <Link href={'/policy'} target='_blank'>
+            политикой обработки персональны данных
+          </Link>
         </span>
         <button
           className='button button_black button_small'

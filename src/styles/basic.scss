@@ -127,12 +127,20 @@ a {
   }
 }
 
+.swiper-button-next:hover::after {
+  content: url('/images/next_hover.svg') !important;
+}
+
 .swiper-button-prev::after {
   content: url('/images/prev.svg') !important;
 
   @include mobile {
     content: url('/images/prev_small.svg') !important;
   }
+}
+
+.swiper-button-prev:hover::after {
+  content: url('/images/prev_hover.svg') !important;
 }
 
 .slide-in {

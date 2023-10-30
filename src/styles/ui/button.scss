@@ -23,6 +23,10 @@
     color: $white;
   }
 
+  &.active {
+    cursor: default;
+  }
+
   &_secondary {
     background-color: transparent;
     color: $white;

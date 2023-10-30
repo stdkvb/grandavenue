@@ -118,7 +118,7 @@ const PageWrapper = ({ children }) => {
           initial={{ y: 0 }}
           animate={{ y: '-100vh' }}
           exit={{ scaleY: 0 }}
-          transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 2, ease: [1, 1, 0.36, 1] }}
         ></motion.div>
         {children}
         <Pagination currentPath={path} />

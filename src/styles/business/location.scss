@@ -127,6 +127,11 @@
     background-size: cover;
     cursor: pointer;
     z-index: 1;
+    @include transition;
+
+    &:hover {
+      scale: 1.1;
+    }
 
     @include tablet_small {
       width: 24px;

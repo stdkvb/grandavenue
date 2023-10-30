@@ -126,12 +126,18 @@ const Header = ({ color }) => {
           {isMenuOpen && (
             <motion.div
               className='menu'
-              initial={{ x: '-100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <div className='menu__wrapper'>
+              <motion.div
+                className='menu__wrapper'
+                initial={{ x: '-100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '-100%' }}
+                transition={{ duration: 0.3 }}
+              >
                 <Image
                   className='menu__close'
                   src='images/close-modal.svg'
@@ -172,40 +178,50 @@ const Header = ({ color }) => {
                   {data && !isLoading && data.data.phone}
                 </Link>
                 <div className='menu__socials'>
-                  <Link href={`${data && !isLoading && data.data.links.viber}`}>
-                    <Image
-                      src='images/viber.svg'
-                      width={40}
-                      height={40}
-                      alt='viber'
-                    />
-                  </Link>
-                  <Link href={`${data && !isLoading && data.data.links.vk}`}>
-                    <Image
-                      src='images/vk.svg'
-                      width={40}
-                      height={40}
-                      alt='vk'
-                    />
-                  </Link>
-                  <Link href={`${data && !isLoading && data.data.links.tg}`}>
-                    <Image
-                      src='images/telegram.svg'
-                      width={40}
-                      height={40}
-                      alt='telegram'
-                    />
-                  </Link>
-                  <Link href={`${data && !isLoading && data.data.links.wa}`}>
-                    <Image
-                      src='images/whatsapp.svg'
-                      width={40}
-                      height={40}
-                      alt='whatsapp'
-                    />
-                  </Link>
+                  {data && !isLoading && data.data.links.viber && (
+                    <Link
+                      href={`${data && !isLoading && data.data.links.viber}`}
+                    >
+                      <Image
+                        src='images/viber.svg'
+                        width={40}
+                        height={40}
+                        alt='viber'
+                      />
+                    </Link>
+                  )}
+                  {data && !isLoading && data.data.links.vk && (
+                    <Link href={`${data && !isLoading && data.data.links.vk}`}>
+                      <Image
+                        src='images/vk.svg'
+                        width={40}
+                        height={40}
+                        alt='vk'
+                      />
+                    </Link>
+                  )}
+                  {data && !isLoading && data.data.links.tg && (
+                    <Link href={`${data && !isLoading && data.data.links.tg}`}>
+                      <Image
+                        src='images/telegram.svg'
+                        width={40}
+                        height={40}
+                        alt='telegram'
+                      />
+                    </Link>
+                  )}
+                  {data && !isLoading && data.data.links.wa && (
+                    <Link href={`${data && !isLoading && data.data.links.wa}`}>
+                      <Image
+                        src='images/whatsapp.svg'
+                        width={40}
+                        height={40}
+                        alt='whatsapp'
+                      />
+                    </Link>
+                  )}
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>

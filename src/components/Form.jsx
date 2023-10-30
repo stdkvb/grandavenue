@@ -11,23 +11,23 @@ const Form = ({ inModal }) => {
   const path = usePathname();
 
   //get token
-  const getToken = () =>
-    fetch('https://grandavenue.ru/api/auth/login', {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        login: 'admin',
-        password: 'i~kf6T4U',
-      }),
-    }).then((res) => res.json());
+  // const getToken = () =>
+  //   fetch('https://grandavenue.ru/api/auth/login', {
+  //     method: 'post',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       login: 'admin',
+  //       password: 'i~kf6T4U',
+  //     }),
+  //   }).then((res) => res.json());
 
-  const { data, isLoading, error } = useSWR(
-    'https://grandavenue.ru/api/auth/login',
-    getToken
-  );
-  const token = data && !isLoading && data.token;
+  // const { data, isLoading, error } = useSWR(
+  //   'https://grandavenue.ru/api/auth/login',
+  //   getToken
+  // );
+  // const token = data && !isLoading && data.token;
 
   // console.log(token);
 
@@ -87,7 +87,7 @@ const Form = ({ inModal }) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
+            // 'Authorization': `Bearer ${token}`,
           },
           body: JSON.stringify({ name, phone }),
         }
@@ -131,9 +131,9 @@ const Form = ({ inModal }) => {
             {errors.phone && <p className='input__error'>{errors.phone}</p>}
           </div>
         </div>
-        <div className='form__privacy'>
+        <div className='form__policy'>
           <span>Отправляя форму, вы соглашаетесь с </span>
-          <Link href={'/privacy'} className='link'>
+          <Link href={'/policyy'} className='link'>
             условиями обработки личных данных
           </Link>
         </div>

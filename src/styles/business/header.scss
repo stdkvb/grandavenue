@@ -34,6 +34,11 @@
 
   &__burger {
     cursor: pointer;
+    @include transition;
+
+    &:hover {
+      scale: 1.1;
+    }
   }
 
   &__discount {

@@ -3,17 +3,22 @@
   top: 0;
   left: 0;
   width: 80%;
-  max-width: 960px;
+  // max-width: 960px;
   background-color: $gray90;
   height: 100vh;
   z-index: 1;
 
-  @include mobile {
-    width: 100%;
-  }
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
 
   &__close {
     cursor: pointer;
+    @include transition;
+
+    &:hover {
+      scale: 1.1;
+    }
   }
 
   &__wrapper {
@@ -24,9 +29,17 @@
     flex-direction: column;
     position: relative;
 
+    width: 80%;
+    max-width: 960px;
+    background-color: #212529;
+    top: 0;
+    left: 0;
+    position: fixed;
+
     @include mobile {
       padding: 22px 15px 90px 15px;
       gap: 24px;
+      width: 100%;
     }
   }
 
@@ -47,6 +60,13 @@
 
       @include mobile {
         font-size: 16px;
+      }
+
+      &:focus {
+        outline: 0;
+        box-shadow: none;
+        border: solid 1px $white;
+        border-radius: 8px;
       }
     }
   }
@@ -113,6 +133,14 @@
     bottom: 70px;
     display: flex;
     flex-direction: column;
+
+    a {
+      @include transition;
+    }
+
+    a:hover {
+      scale: 1.1;
+    }
 
     @include tablet {
       position: unset;

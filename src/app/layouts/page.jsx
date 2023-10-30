@@ -74,7 +74,9 @@ const Layouts = () => {
         <div className='container container_narrow'>
           <div className='layouts__title'>
             <h2>Планировки</h2>
-            <p>{data && !isLoading && data.data.additionalText}</p>
+            <div className='layouts__description'>
+              <p>{data && !isLoading && data.data.additionalText}</p>
+            </div>
           </div>
           <div className='layouts__filter'>
             <span className='layouts__subtitle'>Тип квартиры:</span>
