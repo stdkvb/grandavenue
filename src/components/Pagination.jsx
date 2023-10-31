@@ -3,13 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const pages = [
-  { href: '/project', title: 'о проекте', id: '1' },
-  { href: '/location', title: 'расположение', id: '2' },
-  { href: '/architecture', title: 'архитектура', id: '3' },
-  { href: '/infrastructure', title: 'инфраструктура', id: '4' },
-  { href: '/layouts', title: 'планировки', id: '5' },
-  { href: '/parking', title: 'паркинг', id: '6' },
-  { href: '/contacts', title: 'контакты', id: '7' },
+  { href: '/project', title: 'О проекте', id: '1' },
+  { href: '/location', title: 'Расположение', id: '2' },
+  { href: '/architecture', title: 'Архитектура', id: '3' },
+  { href: '/infrastructure', title: 'Инфраструктура', id: '4' },
+  { href: '/layouts', title: 'Планировки', id: '5' },
+  { href: '/parking', title: 'Паркинг', id: '6' },
+  { href: '/contacts', title: 'Контакты', id: '7' },
 ];
 
 const Pagination = ({ currentPath }) => {
@@ -27,7 +27,7 @@ const Pagination = ({ currentPath }) => {
           style={{ marginBottom: 8 }}
         />
       ) : (
-        <Link href={'/'}>
+        <Link href={'/'} title='Главная'>
           <Image src='images/pagination.svg' width={4} height={4} alt='point' />
         </Link>
       )}
@@ -44,7 +44,7 @@ const Pagination = ({ currentPath }) => {
             />
           </div>
         ) : (
-          <Link href={page.href} key={page.id}>
+          <Link href={page.href} key={page.id} title={page.title}>
             <Image
               src='images/pagination.svg'
               width={4}

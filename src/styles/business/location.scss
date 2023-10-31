@@ -1,15 +1,22 @@
 .location {
   touch-action: none;
   background-color: $gray90;
+
   h1 {
     max-width: 584px;
     position: absolute;
-    top: 200px;
+    bottom: 240px;
     left: 70px;
 
     @include tablet {
+      bottom: unset;
+      top: 400px;
       left: 30px;
       max-width: 400px;
+    }
+
+    @include tablet_small {
+      top: 200px;
     }
 
     @include mobile {
@@ -126,7 +133,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     cursor: pointer;
-    z-index: 1;
     @include transition;
 
     &:hover {

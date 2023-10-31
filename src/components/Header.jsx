@@ -181,6 +181,7 @@ const Header = ({ color }) => {
                   {data && !isLoading && data.data.links.viber && (
                     <Link
                       href={`${data && !isLoading && data.data.links.viber}`}
+                      target='_blank'
                     >
                       <Image
                         src='images/viber.svg'
@@ -191,7 +192,10 @@ const Header = ({ color }) => {
                     </Link>
                   )}
                   {data && !isLoading && data.data.links.vk && (
-                    <Link href={`${data && !isLoading && data.data.links.vk}`}>
+                    <Link
+                      href={`${data && !isLoading && data.data.links.vk}`}
+                      target='_blank'
+                    >
                       <Image
                         src='images/vk.svg'
                         width={40}
@@ -201,7 +205,10 @@ const Header = ({ color }) => {
                     </Link>
                   )}
                   {data && !isLoading && data.data.links.tg && (
-                    <Link href={`${data && !isLoading && data.data.links.tg}`}>
+                    <Link
+                      href={`${data && !isLoading && data.data.links.tg}`}
+                      target='_blank'
+                    >
                       <Image
                         src='images/telegram.svg'
                         width={40}
@@ -211,7 +218,10 @@ const Header = ({ color }) => {
                     </Link>
                   )}
                   {data && !isLoading && data.data.links.wa && (
-                    <Link href={`${data && !isLoading && data.data.links.wa}`}>
+                    <Link
+                      href={`${data && !isLoading && data.data.links.wa}`}
+                      target='_blank'
+                    >
                       <Image
                         src='images/whatsapp.svg'
                         width={40}

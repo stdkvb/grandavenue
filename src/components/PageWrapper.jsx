@@ -9,8 +9,9 @@ import Pagination from './Pagination';
 const PageWrapper = ({ children }) => {
   const router = useRouter();
   const path = usePathname();
+  const [ready, setReady] = useState(true);
 
-  useScroll();
+  useScroll(ready, setReady);
 
   //touch control
   const [touchStart, setTouchStart] = useState(null);
@@ -22,6 +23,14 @@ const PageWrapper = ({ children }) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientY);
   };
+
+  // project
+  // location
+  // architecture
+  // infrastructure
+  // layouts
+  // parking
+  // contacts
 
   const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientY);
 
@@ -98,6 +107,10 @@ const PageWrapper = ({ children }) => {
     }
   };
 
+  const onReady = () => {
+    setReady(true);
+  };
+
   return (
     <AnimatePresence wait={true}>
       <motion.div
@@ -105,6 +118,8 @@ const PageWrapper = ({ children }) => {
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
+        onAnimationEnd={onReady}
+        // onAnimationComplete={onReady}
       >
         {/* <motion.div
           className='slide-in'

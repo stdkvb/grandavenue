@@ -5,9 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a6d53d8-5e07-4bd2-ab7d-ec5bf5735058" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/layouts/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layouts/page.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Form.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/business/project.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/business/project.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/policy/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/policy/page.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageWrapper.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageWrapper.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Pagination.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Pagination.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RoiStatScript.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RoiStatScript.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useScroll/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useScroll/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/business/layouts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/business/layouts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/business/location.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/business/location.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +71,7 @@
       <updated>1697689018272</updated>
       <workItem from="1697689019479" duration="3560000" />
       <workItem from="1698658508584" duration="34000" />
+      <workItem from="1698743351873" duration="4453000" />
     </task>
     <servers />
   </component>

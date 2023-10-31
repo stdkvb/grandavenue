@@ -1,19 +1,25 @@
 .layouts {
   background-color: $gray90;
-  min-height: 100vh;
+  height: 100vh;
+
+  @include tablet {
+    height: unset;
+  }
   .container {
     height: 100%;
-    display: flex;
+    // display: flex;
+    display: grid;
     gap: 20px;
     flex-direction: column;
-    justify-content: space-between;
-    padding-top: 200px;
-    padding-bottom: 100px;
+    // justify-content: space-between;
+    padding-top: 100px;
+    padding-bottom: 50px;
 
     @include tablet {
       padding-top: 90px;
       padding-bottom: 32px;
       gap: 32px;
+      display: flex;
     }
   }
 
@@ -203,7 +209,7 @@
 
   &__text {
     border-bottom: solid 1px $white;
-    padding: 48px 48px 48px 88px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -249,7 +255,7 @@
   &__buttons {
     display: flex;
     gap: 24px;
-    padding: 48px 48px 48px 88px;
+    padding: 24px;
     flex-wrap: wrap;
 
     @include desktop {

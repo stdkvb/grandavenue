@@ -138,7 +138,7 @@ const Layouts = () => {
                             ? 'button button_secondary button_small active'
                             : 'button button_secondary button_small'
                         }
-                        key={item.id}
+                        key={item}
                         onClick={() => setActiveView(i)}
                       >
                         {item}
@@ -180,6 +180,7 @@ const Layouts = () => {
                       <Link
                         href={data && !isLoading && layout.link}
                         className='button button_secondary'
+                        target='_blank'
                       >
                         3D-тур
                       </Link>
@@ -205,7 +206,7 @@ const Layouts = () => {
                         ? 'button button_black-border button_small active'
                         : 'button button_black-border button_small'
                     }
-                    key={item.id}
+                    key={item}
                     onClick={() => setModalActiveView(i)}
                   >
                     {item}

@@ -41,6 +41,7 @@ const Footer = () => {
               ? true
               : false
           }
+          target='_blank'
         >
           <Image src='images/document.svg' width={50} height={50} alt='viber' />
           Список разрешительной документации — ДОМ.РФ

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import PageWrapper from '@/src/components/PageWrapper';
 
 export const metadata = {
   title: 'GrandAvenue | Политика конфиденциальности',
@@ -23,16 +22,15 @@ const Policy = async () => {
   // console.log(data);
 
   return (
-    <PageWrapper>
-      <section className='policy'>
-        <div className='container'>
-          <h1>{data.data.name}</h1>
-          <div
-            className='policy__content'
-            dangerouslySetInnerHTML={{ __html: data.data.content }}
-          ></div>
+    <section className='policy'>
+      <div className='container'>
+        <h1>{data.data.name}</h1>
+        <div
+          className='policy__content'
+          dangerouslySetInnerHTML={{ __html: data.data.content }}
+        ></div>
 
-          {/* <ol>
+        {/* <ol>
             <li>
               <h4>Общие положения</h4>
               <p>
@@ -68,18 +66,17 @@ const Policy = async () => {
               </p>
             </li>
           </ol> */}
-          <div className='footer__bottom'>
-            <span>© 2023. Все права защищены.</span>
-            <Link href={'https://wptt.ru'} className='link'>
-              Разработка — вебпространство
-            </Link>
-            <Link href={'/policy'} className='link'>
-              Политика конфиденциальности
-            </Link>
-          </div>
+        <div className='footer__bottom'>
+          <span>© 2023. Все права защищены.</span>
+          <Link href={'https://wptt.ru'} className='link'>
+            Разработка — вебпространство
+          </Link>
+          <Link href={'/policy'} className='link'>
+            Политика конфиденциальности
+          </Link>
         </div>
-      </section>
-    </PageWrapper>
+      </div>
+    </section>
   );
 };
 
