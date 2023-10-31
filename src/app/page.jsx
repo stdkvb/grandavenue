@@ -36,6 +36,14 @@ const Home = async () => {
           <Link href={'/layouts'} className='button'>
             Выбрать квартиру
           </Link>
+          <Link href={'/project'} className='welcome__next' title='scroll down'>
+            <Image
+              src='images/pagination-active.svg'
+              width={32}
+              height={73}
+              alt='point'
+            />
+          </Link>
         </div>
       </section>
     </PageWrapper>

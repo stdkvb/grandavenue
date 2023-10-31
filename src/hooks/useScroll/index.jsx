@@ -19,47 +19,47 @@ export const useScroll = () => {
     // console.log(path);
 
     if (path == '/') {
-      if (event.deltaY > 40) {
+      if (event.deltaY > 20) {
         router.push('/project');
       }
     }
 
     if (path == '/project') {
-      if (event.deltaY < -40) {
+      if (event.deltaY < -20) {
         router.push('/');
       }
 
-      if (event.deltaY > 40) {
+      if (event.deltaY > 20) {
         router.push('/location');
       }
     }
 
     if (path == '/location') {
-      if (event.deltaY < -40) {
+      if (event.deltaY < -20) {
         router.push('/project');
       }
 
-      if (event.deltaY > 40) {
+      if (event.deltaY > 20) {
         router.push('/architecture');
       }
     }
 
     if (path == '/architecture') {
-      if (event.deltaY < -40) {
+      if (event.deltaY < -20) {
         router.push('/location');
       }
 
-      if (event.deltaY > 40) {
+      if (event.deltaY > 20) {
         router.push('/infrastructure');
       }
     }
 
     if (path == '/infrastructure') {
-      if (event.deltaY < -40) {
+      if (event.deltaY < -20) {
         router.push('/architecture');
       }
 
-      if (event.deltaY > 40) {
+      if (event.deltaY > 20) {
         router.push('/layouts');
       }
     }
@@ -75,17 +75,17 @@ export const useScroll = () => {
     }
 
     if (path == '/parking') {
-      if (event.deltaY < -40) {
+      if (event.deltaY < -20) {
         router.push('/layouts');
       }
 
-      if (event.deltaY > 40) {
+      if (event.deltaY > 20) {
         router.push('/contacts');
       }
     }
 
     if (path == '/contacts') {
-      if (event.deltaY < -40) {
+      if (event.deltaY < -30) {
         router.push('/layouts');
       }
     }

@@ -20,4 +20,22 @@
       padding-bottom: 112px;
     }
   }
+
+  &__next {
+    width: fit-content;
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    @include transition;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
 }
