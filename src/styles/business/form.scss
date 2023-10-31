@@ -3,7 +3,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-areas:
     'name phone'
-    'privacy submit';
+    'policy submit';
   gap: 24px;
   width: 50%;
 
@@ -46,7 +46,7 @@
       }
     }
 
-    .form__privacy {
+    .form__policy {
       justify-self: center;
       span {
         color: $black;

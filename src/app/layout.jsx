@@ -1,5 +1,6 @@
 import { Header } from '../components/Header';
 import { CookieConsent } from '../components/CookieConsent';
+import RoiStatScript from '../components/RoiStatScript';
 
 import './globals.scss';
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
       <body>
         <Header />
         <main>{children}</main>
+        <RoiStatScript />
       </body>
       <CookieConsent />
     </html>
