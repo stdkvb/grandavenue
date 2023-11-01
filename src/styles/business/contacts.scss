@@ -2,6 +2,10 @@
   height: 100%;
   background-color: $gray90;
   height: 100vh;
+
+  @include tablet {
+    height: unset;
+  }
   .container {
     height: 100%;
     padding-top: 100px;
@@ -9,6 +13,20 @@
     grid-template-columns: 1fr;
     gap: 47px;
     min-height: 100vh;
+
+    @include desktop_large {
+      gap: 0;
+      h2 {
+        font-size: 52px;
+        @include tablet {
+          font-size: 30px;
+        }
+
+        @include mobile {
+          font-size: 24px;
+        }
+      }
+    }
 
     @include tablet {
       gap: 32px;

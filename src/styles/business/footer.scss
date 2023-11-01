@@ -6,6 +6,11 @@
   padding-bottom: 40px;
   align-self: end;
 
+  @include desktop {
+    padding-top: 50px;
+    gap: 20px;
+  }
+
   @include mobile {
     padding: 14px 14px 36px 14px;
   }
@@ -40,8 +45,9 @@
     font-size: 42px;
     margin-bottom: 12px;
 
-    @include tablet {
+    @include desktop {
       font-size: 30px;
+      margin-bottom: 0;
     }
 
     @include mobile {
@@ -55,7 +61,8 @@
     font-size: 36px;
     margin-bottom: 50px;
 
-    @include tablet {
+    @include desktop {
+      margin: 0;
       font-size: 24px;
     }
 
@@ -70,6 +77,10 @@
     gap: 44px;
     align-items: flex-end;
     margin-bottom: 70px;
+
+    @include desktop {
+      margin-bottom: 0;
+    }
 
     @include tablet {
       flex-direction: column;

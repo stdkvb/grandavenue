@@ -89,27 +89,27 @@ export const useScroll = (ready, setReady) => {
     }
 
     if (path == '/contacts') {
-      if (event.deltaY < -40) {
+      if (event.deltaY < 0) {
         router.push('/parking');
         onAnimationStart();
       }
     }
   };
   useEffect(() => {
-    // setTimeout(() => {
-    //   window.addEventListener('wheel', handleScroll);
-    //   return () => window.removeEventListener('wheel', handleScroll);
-    // }, 2000);
+    setTimeout(() => {
+      window.addEventListener('wheel', handleScroll);
+      return () => window.removeEventListener('wheel', handleScroll);
+    }, 2000);
 
-    window.addEventListener('wheel', handleScroll);
-    return () => window.removeEventListener('wheel', handleScroll);
+    // window.addEventListener('wheel', handleScroll);
+    // return () => window.removeEventListener('wheel', handleScroll);
   }, []);
 
   const onAnimationStart = () => {
     if (ref.current) return;
     setReady(false);
     const animationDuration = 2000;
-    console.log('animation');
+    // console.log('animation');
     ref.current = setTimeout(() => {
       setReady(true);
       ref.current = null;

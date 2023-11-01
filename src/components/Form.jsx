@@ -3,33 +3,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
-import useSWR from 'swr';
 import { usePathname } from 'next/navigation';
 
 const Form = ({ inModal }) => {
   //get url
   const path = usePathname();
-
-  //get token
-  // const getToken = () =>
-  //   fetch('https://grandavenue.ru/api/auth/login', {
-  //     method: 'post',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       login: 'admin',
-  //       password: 'i~kf6T4U',
-  //     }),
-  //   }).then((res) => res.json());
-
-  // const { data, isLoading, error } = useSWR(
-  //   'https://grandavenue.ru/api/auth/login',
-  //   getToken
-  // );
-  // const token = data && !isLoading && data.token;
-
-  // console.log(token);
 
   //success modal control
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);

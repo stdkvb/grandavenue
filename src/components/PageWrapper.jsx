@@ -17,20 +17,12 @@ const PageWrapper = ({ children }) => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
-  const minSwipeDistance = 150;
+  const minSwipeDistance = 300;
 
   const onTouchStart = (e) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientY);
   };
-
-  // project
-  // location
-  // architecture
-  // infrastructure
-  // layouts
-  // parking
-  // contacts
 
   const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientY);
 
