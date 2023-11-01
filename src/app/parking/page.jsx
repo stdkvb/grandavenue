@@ -34,13 +34,15 @@ const Parking = async () => {
           />
           <div className='container'>
             <h1>{item.title}</h1>
-            <Link
-              href={`${item.btnLink}`}
-              target='_blank'
-              className='button button_secondary'
-            >
-              Выбрать место
-            </Link>
+            {item.btnLink && (
+              <Link
+                href={`${item.btnLink}`}
+                target='_blank'
+                className='button button_secondary'
+              >
+                Выбрать место
+              </Link>
+            )}
           </div>
         </section>
       ))}

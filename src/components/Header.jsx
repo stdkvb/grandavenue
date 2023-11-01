@@ -59,182 +59,182 @@ const Header = ({ color }) => {
 
   return (
     <>
-      <header
-        className={
-          'header container ' +
-          ((path === '/layouts' && 'header_gray') ||
-            (path === '/contacts' && 'header_gray') ||
-            (path === '/policy' && 'header_gray'))
-        }
-      >
-        <div className='header__column'>
-          <Image
-            className='header__burger'
-            src='images/burger.svg'
-            width={24}
-            height={24}
-            alt='menu'
-            onClick={openMenu}
-          />
-          <div className='header__discount' onClick={() => setIsOpen(true)}>
-            <Image src='images/sale.svg' width={24} height={24} alt='sale' />
-            <span>{data && !isLoading && data.data.additionalText}</span>
+      <header className={'header'}>
+        <div className='header__wrapper container'>
+          <div className='header__column'>
+            <Image
+              className='header__burger'
+              src='images/burger.svg'
+              width={24}
+              height={24}
+              alt='menu'
+              onClick={openMenu}
+            />
+            <div className='header__discount' onClick={() => setIsOpen(true)}>
+              <Image src='images/sale.svg' width={24} height={24} alt='sale' />
+              <span>{data && !isLoading && data.data.additionalText}</span>
+            </div>
           </div>
-        </div>
-        <Link href={'/'} className='header__logo'>
-          <img
-            src={
-              data &&
-              !isLoading &&
-              'https://grandavenue.ru' + data.data.desktopLogoUrl
-            }
-            alt='logo'
-          />
-          <img
-            src={
-              data &&
-              !isLoading &&
-              'https://grandavenue.ru' + data.data.mobileLogoUrl
-            }
-            alt='logo'
-          />
-        </Link>
-        <div className='header__column'>
-          <Link
-            href={`${data && !isLoading && 'tel:' + data.data.phone}`}
-            className='header__phone-icon'
-          >
-            <Image src='images/phone.svg' width={24} height={24} alt='phone' />
+          <Link href={'/'} className='header__logo'>
+            <img
+              src={
+                data &&
+                !isLoading &&
+                'https://grandavenue.ru' + data.data.desktopLogoUrl
+              }
+              alt='logo'
+            />
+            <img
+              src={
+                data &&
+                !isLoading &&
+                'https://grandavenue.ru' + data.data.mobileLogoUrl
+              }
+              alt='logo'
+            />
           </Link>
-          <Link
-            href={`${data && !isLoading && 'tel:' + data.data.phone}`}
-            className='header__phone link'
-          >
-            {data && !isLoading && data.data.phone}
-          </Link>
-          <Link
-            href={'/layouts'}
-            className={
-              'header__button button button_secondary ' +
-              (path === '/layouts' && 'button_disabled')
-            }
-          >
-            Выбрать квартиру
-          </Link>
-        </div>
-        <AnimatePresence mode='wait' initial={false}>
-          {isMenuOpen && (
-            <motion.div
-              className='menu'
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+          <div className='header__column'>
+            <Link
+              href={`${data && !isLoading && 'tel:' + data.data.phone}`}
+              className='header__phone-icon'
             >
+              <Image
+                src='images/phone.svg'
+                width={24}
+                height={24}
+                alt='phone'
+              />
+            </Link>
+            <Link
+              href={`${data && !isLoading && 'tel:' + data.data.phone}`}
+              className='header__phone link'
+            >
+              {data && !isLoading && data.data.phone}
+            </Link>
+            <Link
+              href={'/layouts'}
+              className={
+                'header__button button button_secondary ' +
+                (path === '/layouts' && 'button_disabled')
+              }
+            >
+              Выбрать квартиру
+            </Link>
+          </div>
+          <AnimatePresence mode='wait' initial={false}>
+            {isMenuOpen && (
               <motion.div
-                className='menu__wrapper'
-                initial={{ x: '-100%' }}
-                animate={{ x: 0 }}
-                exit={{ x: '-100%' }}
+                className='menu'
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <Image
-                  className='menu__close'
-                  src='images/close-modal.svg'
-                  width={24}
-                  height={24}
-                  alt='close'
-                  onClick={closeMenu}
-                />
-                <nav className='menu__nav'>
-                  {data &&
-                    !isLoading &&
-                    data.data.menu.map((item) => (
+                <motion.div
+                  className='menu__wrapper'
+                  initial={{ x: '-100%' }}
+                  animate={{ x: 0 }}
+                  exit={{ x: '-100%' }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    className='menu__close'
+                    src='images/close-modal.svg'
+                    width={24}
+                    height={24}
+                    alt='close'
+                    onClick={closeMenu}
+                  />
+                  <nav className='menu__nav'>
+                    {data &&
+                      !isLoading &&
+                      data.data.menu.map((item) => (
+                        <Link
+                          key={item.id}
+                          href={item.anchor}
+                          className='link'
+                          onClick={closeMenu}
+                        >
+                          {item.title}
+                        </Link>
+                      ))}
+                  </nav>
+                  <span
+                    className='menu__callback button button_secondary'
+                    onClick={() => setIsOpen(true)}
+                  >
+                    Заказать звонок
+                  </span>
+                  <div className='menu__office'>
+                    <span>Офис продаж:</span>
+                    <span>{data && !isLoading && data.data.office}</span>
+                    <span>{data && !isLoading && data.data.schedule}</span>
+                  </div>
+                  <Link
+                    href={`${data && !isLoading && 'tel:' + data.data.phone}`}
+                    className='menu__phone link'
+                  >
+                    {data && !isLoading && data.data.phone}
+                  </Link>
+                  <div className='menu__socials'>
+                    {data && !isLoading && data.data.links.viber && (
                       <Link
-                        key={item.id}
-                        href={item.anchor}
-                        className='link'
-                        onClick={closeMenu}
+                        href={`${data && !isLoading && data.data.links.viber}`}
+                        target='_blank'
                       >
-                        {item.title}
+                        <Image
+                          src='images/viber.svg'
+                          width={40}
+                          height={40}
+                          alt='viber'
+                        />
                       </Link>
-                    ))}
-                </nav>
-                <span
-                  className='menu__callback button button_secondary'
-                  onClick={() => setIsOpen(true)}
-                >
-                  Заказать звонок
-                </span>
-                <div className='menu__office'>
-                  <span>Офис продаж:</span>
-                  <span>{data && !isLoading && data.data.office}</span>
-                  <span>{data && !isLoading && data.data.schedule}</span>
-                </div>
-                <Link
-                  href={`${data && !isLoading && 'tel:' + data.data.phone}`}
-                  className='menu__phone link'
-                >
-                  {data && !isLoading && data.data.phone}
-                </Link>
-                <div className='menu__socials'>
-                  {data && !isLoading && data.data.links.viber && (
-                    <Link
-                      href={`${data && !isLoading && data.data.links.viber}`}
-                      target='_blank'
-                    >
-                      <Image
-                        src='images/viber.svg'
-                        width={40}
-                        height={40}
-                        alt='viber'
-                      />
-                    </Link>
-                  )}
-                  {data && !isLoading && data.data.links.vk && (
-                    <Link
-                      href={`${data && !isLoading && data.data.links.vk}`}
-                      target='_blank'
-                    >
-                      <Image
-                        src='images/vk.svg'
-                        width={40}
-                        height={40}
-                        alt='vk'
-                      />
-                    </Link>
-                  )}
-                  {data && !isLoading && data.data.links.tg && (
-                    <Link
-                      href={`${data && !isLoading && data.data.links.tg}`}
-                      target='_blank'
-                    >
-                      <Image
-                        src='images/telegram.svg'
-                        width={40}
-                        height={40}
-                        alt='telegram'
-                      />
-                    </Link>
-                  )}
-                  {data && !isLoading && data.data.links.wa && (
-                    <Link
-                      href={`${data && !isLoading && data.data.links.wa}`}
-                      target='_blank'
-                    >
-                      <Image
-                        src='images/whatsapp.svg'
-                        width={40}
-                        height={40}
-                        alt='whatsapp'
-                      />
-                    </Link>
-                  )}
-                </div>
+                    )}
+                    {data && !isLoading && data.data.links.vk && (
+                      <Link
+                        href={`${data && !isLoading && data.data.links.vk}`}
+                        target='_blank'
+                      >
+                        <Image
+                          src='images/vk.svg'
+                          width={40}
+                          height={40}
+                          alt='vk'
+                        />
+                      </Link>
+                    )}
+                    {data && !isLoading && data.data.links.tg && (
+                      <Link
+                        href={`${data && !isLoading && data.data.links.tg}`}
+                        target='_blank'
+                      >
+                        <Image
+                          src='images/telegram.svg'
+                          width={40}
+                          height={40}
+                          alt='telegram'
+                        />
+                      </Link>
+                    )}
+                    {data && !isLoading && data.data.links.wa && (
+                      <Link
+                        href={`${data && !isLoading && data.data.links.wa}`}
+                        target='_blank'
+                      >
+                        <Image
+                          src='images/whatsapp.svg'
+                          width={40}
+                          height={40}
+                          alt='whatsapp'
+                        />
+                      </Link>
+                    )}
+                  </div>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            )}
+          </AnimatePresence>
+        </div>
       </header>
       <Modal
         isOpen={isOpen}

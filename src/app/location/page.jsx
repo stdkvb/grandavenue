@@ -204,6 +204,9 @@ const Location = () => {
           <div className='gallery'>
             <div className='container'>
               <h2>{currentPoint && currentPoint.title}</h2>
+              {currentPoint && currentPoint.subtitle && (
+                <p>{currentPoint && currentPoint.subtitle}</p>
+              )}
             </div>
             <Swiper
               className='gallery__swiper'

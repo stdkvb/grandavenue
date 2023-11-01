@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="5985a21d-867c-40b9-a131-7520c787ed66" name="grandavenue" url="http://ssh.gra4949255.nichost.ru ">
-        <fileTransfer accessType="SFTP" host="ssh.gra4949255.nichost.ru" port="22" sshConfigId="a63f5156-239d-4863-a6ae-81a02d543660" sshConfig="grandavenue">
+        <fileTransfer rootFolder="/home/gra4949255/" accessType="SFTP" host="ssh.gra4949255.nichost.ru" port="22" sshConfigId="a63f5156-239d-4863-a6ae-81a02d543660" sshConfig="grandavenue">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

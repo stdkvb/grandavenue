@@ -1,9 +1,5 @@
 .header {
   background-color: transparent;
-  padding: 20px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: fixed;
   top: 0;
   width: calc(100% - 140px);
@@ -14,12 +10,21 @@
   }
 
   @include mobile {
-    padding: 13px 0;
-    width: calc(100% - 30px);
+    width: 100%;
+    background-color: $gray90;
   }
 
-  &_gray {
-    background-color: $gray90;
+  &__wrapper {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mobile {
+      width: unset;
+      padding: 13px 0;
+    }
   }
 
   &__column {
