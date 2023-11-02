@@ -97,7 +97,7 @@ const Location = () => {
     'https://grandavenue.ru/api/location',
     fetcher
   );
-  // console.log(data);
+  console.log(data);
 
   //data for gallery
   const objects = data && !isLoading && data.data.objects;
@@ -204,8 +204,12 @@ const Location = () => {
           <div className='gallery'>
             <div className='container'>
               <h2>{currentPoint && currentPoint.title}</h2>
-              {currentPoint && currentPoint.subtitle && (
-                <p>{currentPoint && currentPoint.subtitle}</p>
+              {currentPoint && currentPoint.description && (
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: currentPoint && currentPoint.description,
+                  }}
+                ></p>
               )}
             </div>
             <Swiper

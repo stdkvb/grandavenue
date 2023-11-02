@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { usePathname } from 'next/navigation';
+import { MaskedInput, createDefaultMaskGenerator } from 'react-hook-mask';
 
 const Form = ({ inModal }) => {
   //get url
@@ -28,15 +29,18 @@ const Form = ({ inModal }) => {
     },
   };
 
+  //phone mask
+  const maskGenerator = createDefaultMaskGenerator('+7 (999) 999 99 99');
+
   //form validation
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [shortPhone, setShortPhone] = useState('');
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
     validateForm();
-  }, [name, phone]);
+  }, [name, shortPhone]);
 
   const validateForm = () => {
     let errors = {};
@@ -45,8 +49,12 @@ const Form = ({ inModal }) => {
       errors.name = 'Введите ваше имя';
     }
 
-    if (!phone) {
-      errors.phone = 'Введите номер телефона';
+    if (!shortPhone) {
+      errors.shortPhone = 'Введите номер телефона';
+    }
+
+    if (shortPhone.length < 10 && shortPhone.length !== 0) {
+      errors.shortPhone = 'Введите номер телефона полностью';
     }
 
     setErrors(errors);
@@ -56,6 +64,7 @@ const Form = ({ inModal }) => {
   // form submit
   const handleSubmit = () => {
     if (isFormValid) {
+      const phone = '+7' + shortPhone;
       //fetch data
       fetch(
         path == '/layouts'
@@ -73,7 +82,7 @@ const Form = ({ inModal }) => {
 
       // console.log('Form submitted successfully!');
       setName('');
-      setPhone('');
+      setShortPhone('');
 
       //open succsess modal
       setIsSuccessOpen(true);
@@ -98,13 +107,13 @@ const Form = ({ inModal }) => {
           </div>
         </div>
         <div className='form__phone'>
-          <div className={!phone ? 'input' : 'input valid'}>
-            <input
+          <div className={!shortPhone ? 'input' : 'input valid'}>
+            <MaskedInput
               className={!inModal ? '' : 'input_black'}
-              type='text'
               placeholder='Ваш телефон'
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              maskGenerator={maskGenerator}
+              value={shortPhone}
+              onChange={setShortPhone}
             />
             {errors.phone && <p className='input__error'>{errors.phone}</p>}
           </div>
