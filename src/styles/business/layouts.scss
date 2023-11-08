@@ -1,10 +1,11 @@
 .layouts {
   background-color: $gray90;
   height: 100vh;
+  touch-action: none;
 
-  @include tablet {
-    height: unset;
-  }
+  // @include tablet {
+  //   height: unset;
+  // }
   .container {
     height: 100%;
     // display: flex;
@@ -20,6 +21,13 @@
       padding-bottom: 32px;
       gap: 32px;
       display: flex;
+    }
+
+    @include tablet {
+      padding-top: 72px;
+      gap: 10px;
+      padding-bottom: 100px;
+      justify-content: space-between;
     }
   }
 
@@ -41,6 +49,10 @@
     @include desktop {
       width: unset;
       padding: unset;
+    }
+
+    @include tablet {
+      display: none;
     }
 
     p {
@@ -114,6 +126,10 @@
       flex-direction: column;
     }
 
+    @include tablet {
+      flex-grow: 1;
+    }
+
     &.active {
       display: flex;
     }
@@ -137,6 +153,10 @@
         border-right: none;
         border-bottom: solid 1px $white;
         width: unset;
+      }
+
+      @include tablet {
+        flex-grow: 1;
       }
     }
 
@@ -178,7 +198,7 @@
     @include mobile {
       margin: unset;
       right: 8px;
-      bottom: 90px;
+      bottom: 8px;
       top: unset;
       left: unset;
       width: 32px;
@@ -195,6 +215,7 @@
     gap: 12px;
 
     @include mobile {
+      display: none;
       position: unset;
       flex-direction: row;
       align-items: center;
@@ -225,13 +246,17 @@
     }
 
     @include mobile {
-      padding: 24px 10px;
+      padding: 10px;
       gap: 12px;
     }
 
     p {
       font-size: 18px;
       max-width: 619px;
+
+      @include tablet {
+        display: none;
+      }
     }
   }
 
@@ -269,7 +294,7 @@
     }
 
     @include mobile {
-      padding: 24px 10px;
+      padding: 10px;
       gap: 8px;
     }
   }

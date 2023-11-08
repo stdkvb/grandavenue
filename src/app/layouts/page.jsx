@@ -20,7 +20,7 @@ const Layouts = () => {
     fetcher
   );
 
-  // console.log(data);
+  console.log(data);
 
   //modal control
   const [isOpen, setIsOpen] = useState(false);
@@ -65,7 +65,7 @@ const Layouts = () => {
   //filter control
   const [activeIndex, setActiveIndex] = useState(0);
 
-  //views control
+  //views
   const views = ['схема', 'сверху', 'сбоку'];
 
   return (
@@ -119,6 +119,7 @@ const Layouts = () => {
                           (activeView === 2 && layout.viewsImageUrl.side))
                       }
                       alt='layout'
+                      onClick={() => onModalOpen(layout)}
                     />
                     <Image
                       className='layouts__zoom'

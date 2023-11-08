@@ -17,7 +17,7 @@ const PageWrapper = ({ children }) => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
-  const minSwipeDistance = 300;
+  const minSwipeDistance = 100;
 
   const onTouchStart = (e) => {
     setTouchEnd(null);

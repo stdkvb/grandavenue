@@ -95,6 +95,7 @@ export const useScroll = (ready, setReady) => {
       }
     }
   };
+
   useEffect(() => {
     setTimeout(() => {
       window.addEventListener('wheel', handleScroll);
