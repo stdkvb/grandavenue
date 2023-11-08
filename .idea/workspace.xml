@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0a6d53d8-5e07-4bd2-ab7d-ec5bf5735058" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layouts/page.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layouts/page.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PageWrapper.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageWrapper.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useScroll/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useScroll/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/business/layouts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/business/layouts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/basic.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/basic.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +61,7 @@
       <workItem from="1698743351873" duration="7528000" />
       <workItem from="1698825826045" duration="839000" />
       <workItem from="1699334254232" duration="3150000" />
-      <workItem from="1699416992622" duration="3634000" />
+      <workItem from="1699416992622" duration="4428000" />
     </task>
     <servers />
   </component>
