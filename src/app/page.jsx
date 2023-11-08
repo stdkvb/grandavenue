@@ -1,53 +1,73 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import PageWrapper from '../components/PageWrapper';
+'use client';
+import React from 'react';
 
-export const metadata = {
-  title: 'GrandAvenue | Главная',
-};
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCreative, Mousewheel } from 'swiper/modules';
+import 'swiper/css/effect-creative';
 
-async function getData() {
-  const res = await fetch('https://grandavenue.ru/api/main', {
-    next: { revalidate: 10 },
-  });
+import Home from '../components/Home';
+import Project from '../components/Project';
+import Location from '../components/Location';
+import Architecture from '../components/Architecture';
+import Infrastructure from '../components/Infrastructure';
+import Layouts from '../components/Layouts';
+import Parking from '../components/Parking';
+import Contacts from '../components/Contacts';
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-}
-
-const Home = async () => {
-  const data = await getData();
-  // console.log(data);
-
+const page = () => {
   return (
-    <PageWrapper>
-      <section className='page welcome'>
-        <Image
-          className='page__background'
-          src={'https://grandavenue.ru' + data.data.fileUrl}
-          fill={true}
-          alt='background photo'
-        />
-        <div className='container'>
-          <h1>{data.data.title}</h1>
-          <Link href={'/layouts'} className='button'>
-            Выбрать квартиру
-          </Link>
-          <Link href={'/project'} className='welcome__next' title='scroll down'>
-            <Image
-              src='images/pagination-active.svg'
-              width={32}
-              height={73}
-              alt='point'
-            />
-          </Link>
-        </div>
-      </section>
-    </PageWrapper>
+    <Swiper
+      className='page'
+      modules={[Mousewheel, EffectCreative]}
+      slidesperview='1'
+      mousewheel={true}
+      direction='vertical'
+      speed='1000'
+      effect={'creative'}
+      creativeEffect={{
+        prev: {
+          shadow: true,
+          translate: [0, '-20%', -1],
+        },
+        next: {
+          translate: [0, '100%', 0],
+        },
+        // prev: {
+        //   shadow: true,
+        //   translate: [0, '-100%', 0],
+        // },
+        // next: {
+        //   shadow: true,
+        //   translate: [0, '100%', 0],
+        // },
+      }}
+    >
+      <SwiperSlide>
+        <Home />
+      </SwiperSlide>
+      <SwiperSlide>
+        <Project />
+      </SwiperSlide>
+      <SwiperSlide>
+        <Location />
+      </SwiperSlide>
+      <SwiperSlide>
+        <Architecture />
+      </SwiperSlide>
+      <SwiperSlide>
+        <Infrastructure />
+      </SwiperSlide>
+      <SwiperSlide>
+        <Layouts />
+      </SwiperSlide>
+      <SwiperSlide>
+        <Parking />
+      </SwiperSlide>
+      <SwiperSlide>
+        <Contacts />
+      </SwiperSlide>
+    </Swiper>
   );
 };
 
-export default Home;
+export default page;

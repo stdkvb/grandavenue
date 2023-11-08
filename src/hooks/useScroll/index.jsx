@@ -97,13 +97,13 @@ export const useScroll = (ready, setReady) => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      window.addEventListener('wheel', handleScroll);
-      return () => window.removeEventListener('wheel', handleScroll);
-    }, 2000);
+    // setTimeout(() => {
+    //   window.addEventListener('wheel', handleScroll);
+    //   return () => window.removeEventListener('wheel', handleScroll);
+    // }, 2000);
 
-    // window.addEventListener('wheel', handleScroll);
-    // return () => window.removeEventListener('wheel', handleScroll);
+    window.addEventListener('wheel', handleScroll);
+    return () => window.removeEventListener('wheel', handleScroll);
   }, []);
 
   const onAnimationStart = () => {
