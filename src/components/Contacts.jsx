@@ -22,6 +22,8 @@ const Contacts = () => {
       transform: 'translate(-50%, -50%)',
       padding: '0',
       borderRadius: '0',
+      width: '93%',
+      maxWidth: '490px',
     },
   };
   return (

@@ -44,6 +44,10 @@
       gap: 15px;
       grid-template-rows: auto auto 1fr;
     }
+
+    @include mobile {
+      padding-top: 120px;
+    }
   }
 
   &__content {
