@@ -2,26 +2,9 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScroll } from '@/src/hooks/useScroll';
-import { useState, forwardRef } from 'react';
+import { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Pagination from './Pagination';
-import FrozenRouter from './FrozenRouter';
-
-const Child = forwardRef(({ children }, ref) => {
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 100 }}
-      transition={{ duration: 4 }}
-    >
-      <FrozenRouter>{children}</FrozenRouter>
-    </motion.div>
-  );
-});
-
-Child.displayName = 'Child';
 
 const PageWrapper = ({ children }) => {
   const router = useRouter();
@@ -121,8 +104,8 @@ const PageWrapper = ({ children }) => {
   };
 
   return (
-    <AnimatePresence mode='popLayout' initial={false}>
-      {/* <motion.div
+    <AnimatePresence mode='wait'>
+      <motion.div
         key={router.pathname}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
@@ -130,13 +113,13 @@ const PageWrapper = ({ children }) => {
         onAnimationEnd={onReady}
         // onAnimationComplete={onReady}
       >
-        <motion.div
+        {/* <motion.div
           className='slide-in'
           initial={{ scaleY: 0 }}
           animate={{ scaleY: 0 }}
           exit={{ scaleY: 1 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        ></motion.div>
+        ></motion.div> */}
         <motion.div
           className='slide-out'
           initial={{ y: 0 }}
@@ -144,10 +127,9 @@ const PageWrapper = ({ children }) => {
           exit={{ scaleY: 0 }}
           transition={{ duration: 2, ease: [1, 1, 0.36, 1] }}
         ></motion.div>
-
+        {children}
         <Pagination currentPath={path} />
-      </motion.div> */}
-      <Child key={path}>{children}</Child>
+      </motion.div>
     </AnimatePresence>
   );
 };
