@@ -28,7 +28,7 @@ const Page = () => {
       mousewheel={true}
       direction='vertical'
       speed='2000'
-      initialSlide={section}
+      initialSlide={7}
     >
       <SwiperSlide>
         <Home />

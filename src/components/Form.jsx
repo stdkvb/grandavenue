@@ -93,7 +93,7 @@ const Form = ({ inModal }) => {
 
   return (
     <>
-      <div className={!inModal ? 'form' : 'form form_modal'}>
+      <div className={!inModal ? 'form form_contacts' : 'form form_modal'}>
         <div className='form__name'>
           <div className={!name ? 'input' : 'input valid'}>
             <input
@@ -120,7 +120,7 @@ const Form = ({ inModal }) => {
         </div>
         <div className='form__policy'>
           <span>Отправляя форму, вы соглашаетесь с </span>
-          <Link href={'/policyy'} className='link'>
+          <Link href={'/policyy'} className='link' target='_blank'>
             условиями обработки личных данных
           </Link>
         </div>

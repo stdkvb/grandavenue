@@ -76,7 +76,7 @@ const Footer = () => {
         <Link href={'https://wptt.ru'} className='link'>
           Разработка — вебпространство
         </Link>
-        <Link href={'/policy'} className='link'>
+        <Link href={'/policy'} className='link' target='_blank'>
           Политика конфиденциальности
         </Link>
       </div>

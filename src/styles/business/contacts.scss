@@ -6,6 +6,13 @@
   @include tablet {
     height: unset;
   }
+
+  @include tablet_small {
+    .form_contacts {
+      display: none;
+    }
+  }
+
   .container {
     height: 100%;
     padding-top: 100px;
@@ -31,6 +38,11 @@
     @include tablet {
       gap: 32px;
       padding-top: 92px;
+    }
+
+    @include tablet_small {
+      gap: 15px;
+      grid-template-rows: auto auto 1fr;
     }
   }
 
@@ -59,6 +71,16 @@
       font-size: 18px;
       max-width: 465px;
       color: $gray30;
+    }
+
+    @include tablet_small {
+      display: none;
+    }
+  }
+
+  &__button {
+    @include min_tablet_small {
+      display: none;
     }
   }
 }

@@ -182,6 +182,9 @@ a {
 .page-swiper {
   background-image: url('/images/transition.png');
   background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: #131312;
+  background-position: center;
 
   @include tablet_small {
     background-image: url('/images/transition-mobile.png');

@@ -11,8 +11,12 @@
     gap: 20px;
   }
 
+  @include tablet_small {
+    gap: 10px;
+  }
+
   @include mobile {
-    padding: 14px 14px 36px 14px;
+    padding: 14px 14px 14px 14px;
   }
 
   &__socials {
@@ -36,7 +40,7 @@
       position: unset;
       display: flex;
       justify-content: space-between;
-      margin-bottom: 24px;
+      margin-bottom: 0;
     }
   }
 
@@ -68,7 +72,7 @@
 
     @include mobile {
       font-size: 20px;
-      margin-bottom: 24px;
+      margin-bottom: 0;
     }
   }
 
@@ -89,7 +93,7 @@
     }
 
     @include mobile {
-      margin-bottom: 24px;
+      margin-bottom: 0;
     }
 
     .link {
@@ -111,6 +115,10 @@
 
       &:nth-child(1) {
         margin-bottom: 12px;
+
+        @include mobile {
+          margin-bottom: 5px;
+        }
       }
 
       &:nth-child(2) {
