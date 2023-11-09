@@ -8,7 +8,6 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
-import { useTitle } from '@/src/hooks';
 import useSWR from 'swr';
 import Modal from 'react-modal';
 
@@ -89,8 +88,6 @@ const points = [
 ];
 
 const Location = () => {
-  useTitle('GrandAvenue | Расположение');
-
   //get data
   const { data, error, isLoading } = useSWR(
     'https://grandavenue.ru/api/location',

@@ -1,13 +1,10 @@
 'use client';
 import Image from 'next/image';
 import useSWR from 'swr';
-import { useTitle } from '@/src/hooks';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const Project = () => {
-  useTitle('GrandAvenue | О проекте');
-
   //get data
   const { data, error, isLoading } = useSWR(
     'https://grandavenue.ru/api/project',

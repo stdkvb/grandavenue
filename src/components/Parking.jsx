@@ -2,13 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import useSWR from 'swr';
-import { useTitle } from '@/src/hooks';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const Parking = () => {
-  useTitle('GrandAvenue | Паркинг');
-
   //get data
   const { data, error, isLoading } = useSWR(
     'https://grandavenue.ru/api/parking',

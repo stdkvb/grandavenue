@@ -6,13 +6,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import useSWR from 'swr';
-import { useTitle } from '@/src/hooks';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const Infrastructure = () => {
-  useTitle('GrandAvenue | Инфраструктура');
-
   //get data
   const { data, error, isLoading } = useSWR(
     'https://grandavenue.ru/api/infrastructure',

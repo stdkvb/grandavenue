@@ -6,13 +6,10 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import useSWR from 'swr';
-import { useTitle } from '@/src/hooks';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const Architecture = () => {
-  useTitle('GrandAvenue | Архитектура');
-
   //get data
   const { data, error, isLoading } = useSWR(
     'https://grandavenue.ru/api/architecture',
@@ -21,7 +18,7 @@ const Architecture = () => {
   // console.log(data);
 
   return (
-    <section className='page swiper-page'>
+    <section className='page swiper-page' id='architecture'>
       <Swiper
         className='page__swiper'
         modules={[Navigation, Scrollbar]}

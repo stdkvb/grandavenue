@@ -2,11 +2,8 @@
 
 import Form from '@/src/components/Form';
 import Footer from '@/src/components/Footer';
-import { useTitle } from '@/src/hooks';
 
 const Contacts = () => {
-  useTitle('GrandAvenue | Контакты');
-
   return (
     <section className='contacts'>
       <div className='container'>

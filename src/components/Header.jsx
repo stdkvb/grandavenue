@@ -1,11 +1,12 @@
 'use client';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Modal from 'react-modal';
 import useSWR from 'swr';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
+import { SectionContext } from './SectionProvider';
 
 import Form from './Form';
 
@@ -56,6 +57,9 @@ const Header = ({ color }) => {
       borderRadius: '0',
     },
   };
+
+  //nav control
+  const { section, setSection } = useContext(SectionContext);
 
   return (
     <>
@@ -149,14 +153,16 @@ const Header = ({ color }) => {
                     {data &&
                       !isLoading &&
                       data.data.menu.map((item) => (
-                        <Link
+                        <div
                           key={item.id}
-                          href={item.anchor}
                           className='link'
-                          onClick={closeMenu}
+                          onClick={() => {
+                            setSection(item.anchor);
+                            console.log(section);
+                          }}
                         >
                           {item.title}
-                        </Link>
+                        </div>
                       ))}
                   </nav>
                   <span

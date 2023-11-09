@@ -1,6 +1,7 @@
 import { Header } from '../components/Header';
 import { CookieConsent } from '../components/CookieConsent';
 import RoiStatScript from '../components/RoiStatScript';
+import SectionProvider from '../components/SectionProvider';
 
 import './globals.scss';
 
@@ -14,9 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang='ru'>
       <body>
-        <Header />
-
-        <main>{children}</main>
+        <SectionProvider>
+          <Header />
+          <main>{children}</main>
+        </SectionProvider>
         <RoiStatScript />
       </body>
       <CookieConsent />

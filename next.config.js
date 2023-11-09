@@ -12,7 +12,6 @@ module.exports = {
       },
     ],
   },
-  distDir: 'build',
   experimental: {
     // This is experimental but can
     // be enabled to allow parallel threads
