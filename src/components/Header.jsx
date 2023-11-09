@@ -159,6 +159,7 @@ const Header = ({ color }) => {
                           key={item.id}
                           className='link'
                           onClick={() => {
+                            closeMenu();
                             setSection(item.anchor);
                             console.log(section);
                           }}

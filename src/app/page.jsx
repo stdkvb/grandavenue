@@ -1,5 +1,5 @@
 'use client';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel } from 'swiper/modules';
@@ -18,6 +18,7 @@ import Contacts from '../components/Contacts';
 
 const Page = () => {
   const { section } = useContext(SectionContext);
+  console.log(section);
 
   return (
     <Swiper
@@ -28,7 +29,7 @@ const Page = () => {
       mousewheel={true}
       direction='vertical'
       speed='2000'
-      initialSlide={7}
+      initialSlide={section}
     >
       <SwiperSlide>
         <Home />
