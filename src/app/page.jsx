@@ -15,10 +15,10 @@ import Infrastructure from '../components/Infrastructure';
 import Layouts from '../components/Layouts';
 import Parking from '../components/Parking';
 import Contacts from '../components/Contacts';
+import { SwiperWatcher } from '../components/SwiperWatcher';
 
 const Page = () => {
   const { section } = useContext(SectionContext);
-  console.log(section);
 
   return (
     <Swiper
@@ -55,6 +55,8 @@ const Page = () => {
       <SwiperSlide>
         <Contacts />
       </SwiperSlide>
+
+      <SwiperWatcher />
     </Swiper>
   );
 };
