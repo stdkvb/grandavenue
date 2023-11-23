@@ -18,12 +18,23 @@ const Parking = () => {
         !isLoading &&
         data.data.map((item) => (
           <section className='page welcome' key={item.id}>
-            <Image
+            {/* <Image
               fill={true}
-              className='page__background'
+              className='page__background page__background_zoom'
               src={'https://grandavenue.ru' + item.fileUrl}
               alt='photo'
-            />
+            /> */}
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className='page__background'
+              // src={data && !isLoading && 'https://grandavenue.ru' + data.data.fileUrl}
+              src='videos/sample-5s.mp4'
+              fill={true}
+              alt='background video'
+            ></video>
             <div className='container'>
               <h1>{item.title}</h1>
               {item.btnLink && (

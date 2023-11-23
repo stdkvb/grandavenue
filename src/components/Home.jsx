@@ -14,12 +14,23 @@ const Home = () => {
 
   return (
     <section className='page welcome'>
-      <Image
-        className='page__background'
-        src={data && !isLoading && 'https://grandavenue.ru' + data.data.fileUrl}
+      {/* <Image
         fill={true}
-        alt='background photo'
-      />
+        className='page__background page__background_zoom'
+        src={data && !isLoading && 'https://grandavenue.ru' + data.data.fileUrl}
+        alt='photo'
+      /> */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className='page__background'
+        // src={data && !isLoading && 'https://grandavenue.ru' + data.data.fileUrl}
+        src='videos/video.mp4'
+        fill={true}
+        alt='background video'
+      ></video>
       <div className='container'>
         <h1>{data && !isLoading && data.data.title}</h1>
         <Link href={'/layouts'} className='button'>

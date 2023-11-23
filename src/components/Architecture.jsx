@@ -32,7 +32,7 @@ const Architecture = () => {
           data.data.elements.map((item) => (
             <SwiperSlide key={item.id}>
               <Image
-                className='page__background'
+                className='page__background page__background_zoom'
                 src={'https://grandavenue.ru' + item.file}
                 fill={true}
                 alt='photo'

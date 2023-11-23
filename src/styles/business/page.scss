@@ -8,7 +8,10 @@
     object-fit: cover;
     position: absolute;
     z-index: -1;
-    @include zoom-move;
+
+    &_zoom {
+      @include zoom-move;
+    }
   }
 
   &__swiper {

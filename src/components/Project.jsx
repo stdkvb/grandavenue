@@ -13,12 +13,22 @@ const Project = () => {
 
   return (
     <section className='page project'>
-      <Image
+      {/* <Image
         fill={true}
-        className='page__background'
+        className='page__background page__background_zoom'
         src={data && !isLoading && 'https://grandavenue.ru' + data.data.fileUrl}
         alt='photo'
-      />
+      /> */}
+      <video
+        autoPlay
+        muted
+        loop
+        className='page__background'
+        // src={data && !isLoading && 'https://grandavenue.ru' + data.data.fileUrl}
+        src='videos/sample-5s.mp4'
+        fill={true}
+        alt='background video'
+      ></video>
       <div className='container'>
         <h1
           dangerouslySetInnerHTML={{
